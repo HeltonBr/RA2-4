@@ -1,0 +1,9 @@
+[project]
+name = "analisador-sintatico-ll1"
+version = "0.1.0"
+description = "Fase 2 - analisador sintatico LL(1) com AST e geracao de Assembly"
+requires-python = ">=3.13"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
