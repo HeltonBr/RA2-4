@@ -57,7 +57,7 @@ class TokenStream:
         token = self.peek()
         if token.token_type != token_type:
             raise SyntaxAnalysisError(
-                f"{message} Encontrado '{token.lexeme}' na linha {token.line}, coluna {token.column}."
+                f"{message} Encontrado {format_token_for_error(token)} na linha {token.line}, coluna {token.column}."
             )
         return self.advance()
 
@@ -315,11 +315,7 @@ class RecursiveDescentLL1Parser:
         producao = self.grammar.parsing_table.get(nonterminal, {}).get(lookahead)
         if producao is None:
             token = self.stream.peek()
-            esperados = ", ".join(sorted(self.grammar.parsing_table.get(nonterminal, {})))
-            raise SyntaxAnalysisError(
-                f"Nao ha producao LL(1) para {nonterminal} com lookahead {token.token_type.name} "
-                f"na linha {token.line}, coluna {token.column}. Esperado: {esperados}."
-            )
+            raise SyntaxAnalysisError(self._build_prediction_error(nonterminal, token))
         self.derivation.append(f"{nonterminal} -> {' '.join(producao)}")
         self.analysis_trace.append(f"pilha={self.analysis_stack!r} lookahead={lookahead} producao={producao}")
         return producao
@@ -350,6 +346,34 @@ class RecursiveDescentLL1Parser:
         setattr(node, "column", opening.column)
         return node
 
+    def _build_prediction_error(self, nonterminal: str, token: Token) -> str:
+        esperados = sorted(self.grammar.parsing_table.get(nonterminal, {}))
+        esperado_legivel = ", ".join(esperados)
+
+        if nonterminal == "program_body" and token.token_type == TokenType.EOF:
+            return "Programa incompleto: faltou a linha final (END)."
+        if token.token_type == TokenType.EOF:
+            return (
+                f"Fim inesperado de arquivo enquanto analisava {nonterminal}. "
+                f"Esperado: {esperado_legivel}."
+            )
+        if nonterminal == "stmt_after_second":
+            return (
+                "Estrutura pos-fixada incompleta: apos dois itens era esperado um operador aritmetico, "
+                "um operador relacional ou uma keyword de controle (IF, IFELSE, WHILE, SEQ). "
+                f"Encontrado {format_token_for_error(token)} na linha {token.line}, coluna {token.column}."
+            )
+        if nonterminal == "stmt_after_first":
+            return (
+                "Estrutura pos-fixada incompleta: apos o primeiro item era esperado RES, um identificador "
+                "de memoria de destino ou outro item para continuar a estrutura. "
+                f"Encontrado {format_token_for_error(token)} na linha {token.line}, coluna {token.column}."
+            )
+        return (
+            f"Nao ha producao LL(1) para {nonterminal} com lookahead {token.token_type.name} "
+            f"na linha {token.line}, coluna {token.column}. Esperado: {esperado_legivel}."
+        )
+
 
 def parsear(tokens: list[list[Token]], tabela_ll1: GrammarBundle) -> ParseResult:
     fluxo = flatten_token_lines(tokens)
@@ -360,3 +384,11 @@ def parsear(tokens: list[list[Token]], tabela_ll1: GrammarBundle) -> ParseResult
         syntax_tree_seed=program,
         analysis_trace=parser.analysis_trace,
     )
+
+
+def format_token_for_error(token: Token) -> str:
+    if token.token_type == TokenType.EOF:
+        return "fim de arquivo"
+    if token.token_type == TokenType.EOL:
+        return "fim de linha"
+    return f"'{token.lexeme}'"

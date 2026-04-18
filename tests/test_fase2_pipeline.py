@@ -3,6 +3,8 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+import subprocess
+import sys
 
 from analisador_sintatico_ll1 import construirGramatica
 from analisador_sintatico_ll1 import gerarArvore
@@ -85,6 +87,32 @@ class Fase2PipelineTests(unittest.TestCase):
 
         with self.assertRaises(SyntaxAnalysisError):
             parsear(tokens, bundle)
+
+    def test_cli_retorna_erro_lexico_sem_traceback(self) -> None:
+        caminho = ROOT / "tests" / "invalidos" / "lexico_minusculo.txt"
+        resultado = subprocess.run(
+            [sys.executable, "AnalisadorSintatico.py", str(caminho)],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(resultado.returncode, 1)
+        self.assertIn("Erro: Identificador invalido", resultado.stderr)
+        self.assertNotIn("Traceback", resultado.stderr)
+
+    def test_cli_retorna_mensagem_clara_para_end_ausente(self) -> None:
+        caminho = ROOT / "tests" / "invalidos" / "sintaxe_sem_end.txt"
+        resultado = subprocess.run(
+            [sys.executable, "AnalisadorSintatico.py", str(caminho)],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(resultado.returncode, 1)
+        self.assertIn("Programa incompleto: faltou a linha final (END).", resultado.stderr)
+        self.assertNotIn("Traceback", resultado.stderr)
 
 
 if __name__ == "__main__":

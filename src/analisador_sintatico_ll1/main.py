@@ -1,7 +1,13 @@
+# Integrantes do grupo (ordem alfabetica):
+# Helton Tessari Brandao - HeltonBr
+#
+# Nome do grupo no Canvas: RA2-4
+
 from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from analisador_sintatico_ll1.core import construirGramatica
@@ -10,6 +16,7 @@ from analisador_sintatico_ll1.core import gerarAssembly
 from analisador_sintatico_ll1.core import lerTokens
 from analisador_sintatico_ll1.core import parsear
 from analisador_sintatico_ll1.core import salvar_tokens_em_arquivo
+from analisador_sintatico_ll1.errors import AnalisadorSintaticoError
 from analisador_sintatico_ll1.grammar import salvar_documentacao_gramatica
 
 
@@ -21,13 +28,12 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main() -> int:
-    args = build_parser().parse_args()
+def executar_pipeline(arquivo: Path) -> Path:
     repo_root = Path(__file__).resolve().parents[2]
     generated_dir = repo_root / "generated"
     docs_dir = repo_root / "docs"
 
-    tokens = lerTokens(args.arquivo)
+    tokens = lerTokens(arquivo)
     gramatica = construirGramatica()
     derivacao = parsear(tokens, gramatica)
     arvore = gerarArvore(derivacao)
@@ -47,9 +53,22 @@ def main() -> int:
         encoding="utf-8",
     )
     salvar_documentacao_gramatica(gramatica, docs_dir)
-    print(f"Analise concluida para: {args.arquivo}")
-    print(f"Artefatos atualizados em: {generated_dir}")
-    return 0
+    return generated_dir
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+    try:
+        generated_dir = executar_pipeline(args.arquivo)
+        print(f"Analise concluida para: {args.arquivo}")
+        print(f"Artefatos atualizados em: {generated_dir}")
+        return 0
+    except AnalisadorSintaticoError as exc:
+        print(f"Erro: {exc}", file=sys.stderr)
+        return 1
+    except Exception as exc:  # pragma: no cover - ultima barreira defensiva
+        print(f"Erro inesperado: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

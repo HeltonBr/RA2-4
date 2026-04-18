@@ -59,3 +59,49 @@ Transformar o bootstrap inicial em um nucleo executavel do analisador sintatico 
 - Revisar mensagens de erro para casos mais profundos de aninhamento e estruturas de controle.
 - Auditar a documentacao final com foco no que o professor avaliara automaticamente.
 - Continuar a linha do tempo com novos checkpoints pequenos e commits rastreaveis.
+
+## 2026-04-18 - Checkpoint 2
+
+### Objetivo do checkpoint
+
+Eliminar traceback bruto na interface de linha de comando, melhorar mensagens sintaticas mais provaveis e reforcar a cobertura automatizada do fluxo de erro.
+
+### Tarefas executadas
+
+- Inclusao de tratamento centralizado de excecoes em `main.py`.
+- Impressao limpa de erros de dominio como `Erro: ...`, com retorno diferente de zero.
+- Melhoria da mensagem de fim de arquivo inesperado para o caso classico de programa sem `(END)`.
+- Melhoria das mensagens de predicao para estruturas pos-fixadas incompletas.
+- Inclusao dos cabecalhos obrigatorios nas primeiras linhas de `__init__.py` e `main.py`.
+- Expansao da suite automatizada para cobrir:
+  - erro lexico no CLI sem traceback;
+  - erro sintatico no CLI sem traceback;
+  - mensagem clara para `END` ausente.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada executada com `python -m unittest discover -s tests -p "test_*.py" -v`:
+  - 7 testes passando.
+- Execucao manual do CLI com:
+  - `tests/invalidos/lexico_minusculo.txt`;
+  - `tests/invalidos/sintaxe_sem_end.txt`;
+  - `tests/teste2.txt`.
+- Atualizacao dos artefatos da ultima execucao em `generated/` e `docs/` com base em `tests/teste2.txt`.
+
+### Arquivos principais impactados
+
+- `src/analisador_sintatico_ll1/main.py`
+- `src/analisador_sintatico_ll1/parser_ll1.py`
+- `src/analisador_sintatico_ll1/__init__.py`
+- `tests/test_fase2_pipeline.py`
+
+### Riscos ou pontos a observar
+
+- Ainda nao ha recuperacao sintatica multiponto; o comportamento segue fail-fast, mas agora com mensagem clara.
+- Falta uma auditoria final focada no checklist do professor para confirmar se nada administrativo/documental ficou para tras.
+
+### Proximas tarefas do pipeline
+
+- Auditar README, markdowns tecnicos e estrutura do repositorio contra o enunciado final.
+- Revisar se os nomes e as assinaturas esperadas pelo professor estao todos visiveis e consistentes.
+- Fechar o proximo commit com foco em documentacao final e acabamento de entrega.

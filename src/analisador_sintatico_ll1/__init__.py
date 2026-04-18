@@ -1,3 +1,8 @@
+# Integrantes do grupo (ordem alfabetica):
+# Helton Tessari Brandao - HeltonBr
+#
+# Nome do grupo no Canvas: RA2-4
+
 """Projeto da Fase 2 do analisador sintatico LL(1)."""
 
 from analisador_sintatico_ll1.core import GrammarBundle

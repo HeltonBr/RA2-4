@@ -87,19 +87,19 @@ Essas escolhas mantem o estilo pos-fixado e permitem documentar uma gramatica ca
 - O enunciado exige simultaneamente compatibilidade com a Fase 1 e uma gramatica LL(1) estrita. Alguns atalhos permissivos da Fase 1, como memoria nua como operando, podem gerar ambiguidades formais. A estrategia adotada e manter uma sintaxe canonica rigorosa e tratar compatibilidades extras como opcional.
 - A parte de Assembly para `IF`, `IFELSE` e `WHILE` exige convencao clara de verdade booleana e controle de labels.
 - O nome final do repositorio no GitHub depende do nome oficial do grupo no Canvas, que ainda precisa ser confirmado antes da publicacao.
-- Os nomes completos de todos os integrantes ainda nao foram preenchidos nas cabecalhos obrigatorios do codigo.
+- A etapa restante mais sensivel esta na auditoria final da documentacao e dos detalhes administrativos da entrega.
 
 ## 6. Checklist de aceite final
 
-- [ ] `lerTokens()` implementada e testada com arquivo de tokens serializados.
-- [ ] `construirGramatica()` implementada com EBNF, FIRST, FOLLOW e tabela LL(1).
-- [ ] `parsear()` implementada com mensagens de erro por linha e coluna.
-- [ ] `gerarArvore()` implementada e persistindo JSON/texto.
-- [ ] `gerarAssembly()` gerando saida ARMv7 coerente com a AST.
-- [ ] `main()` executando por linha de comando.
-- [ ] 3 arquivos de teste completos.
-- [ ] Casos invalidos cobrindo erros lexicos e sintaticos.
-- [ ] README completo.
-- [ ] Markdown tecnico com gramatica, FIRST/FOLLOW, tabela LL(1) e ultima arvore.
-- [ ] Ultima execucao documentada no repositorio.
-- [ ] Historico de commits limpo e evolutivo.
+- [x] `lerTokens()` implementada e testada com arquivo de tokens serializados.
+- [x] `construirGramatica()` implementada com EBNF, FIRST, FOLLOW e tabela LL(1).
+- [x] `parsear()` implementada com mensagens de erro por linha e coluna.
+- [x] `gerarArvore()` implementada e persistindo JSON/texto.
+- [x] `gerarAssembly()` gerando saida ARMv7 coerente com a AST.
+- [x] `main()` executando por linha de comando.
+- [x] 3 arquivos de teste completos.
+- [x] Casos invalidos cobrindo erros lexicos e sintaticos.
+- [x] README completo.
+- [x] Markdown tecnico com gramatica, FIRST/FOLLOW, tabela LL(1) e ultima arvore.
+- [x] Ultima execucao documentada no repositorio.
+- [x] Historico de commits limpo e evolutivo.

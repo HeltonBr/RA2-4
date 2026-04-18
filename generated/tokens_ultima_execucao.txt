@@ -5,136 +5,182 @@ type=RPAREN;lexeme=);line=1;column=7;is_integer_literal=False
 
 [LINHA 2]
 type=LPAREN;lexeme=(;line=2;column=1;is_integer_literal=False
-type=NUMBER;lexeme=10;line=2;column=2;value=10.0;is_integer_literal=True
-type=IDENTIFIER;lexeme=X;line=2;column=5;is_integer_literal=False
-type=RPAREN;lexeme=);line=2;column=6;is_integer_literal=False
+type=NUMBER;lexeme=4;line=2;column=2;value=4.0;is_integer_literal=True
+type=IDENTIFIER;lexeme=A;line=2;column=4;is_integer_literal=False
+type=RPAREN;lexeme=);line=2;column=5;is_integer_literal=False
 
 [LINHA 3]
 type=LPAREN;lexeme=(;line=3;column=1;is_integer_literal=False
-type=NUMBER;lexeme=3;line=3;column=2;value=3.0;is_integer_literal=True
-type=IDENTIFIER;lexeme=Y;line=3;column=4;is_integer_literal=False
+type=NUMBER;lexeme=2;line=3;column=2;value=2.0;is_integer_literal=True
+type=IDENTIFIER;lexeme=B;line=3;column=4;is_integer_literal=False
 type=RPAREN;lexeme=);line=3;column=5;is_integer_literal=False
 
 [LINHA 4]
 type=LPAREN;lexeme=(;line=4;column=1;is_integer_literal=False
-type=LPAREN;lexeme=(;line=4;column=2;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=4;column=3;is_integer_literal=False
-type=RPAREN;lexeme=);line=4;column=4;is_integer_literal=False
-type=LPAREN;lexeme=(;line=4;column=6;is_integer_literal=False
-type=IDENTIFIER;lexeme=Y;line=4;column=7;is_integer_literal=False
-type=RPAREN;lexeme=);line=4;column=8;is_integer_literal=False
-type=OP_PLUS;lexeme=+;line=4;column=10;is_integer_literal=False
-type=RPAREN;lexeme=);line=4;column=11;is_integer_literal=False
+type=NUMBER;lexeme=1.5;line=4;column=2;value=1.5;is_integer_literal=False
+type=IDENTIFIER;lexeme=C;line=4;column=6;is_integer_literal=False
+type=RPAREN;lexeme=);line=4;column=7;is_integer_literal=False
 
 [LINHA 5]
 type=LPAREN;lexeme=(;line=5;column=1;is_integer_literal=False
 type=LPAREN;lexeme=(;line=5;column=2;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=5;column=3;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=5;column=3;is_integer_literal=False
 type=RPAREN;lexeme=);line=5;column=4;is_integer_literal=False
-type=NUMBER;lexeme=2;line=5;column=6;value=2.0;is_integer_literal=True
-type=OP_MINUS;lexeme=-;line=5;column=8;is_integer_literal=False
-type=RPAREN;lexeme=);line=5;column=9;is_integer_literal=False
+type=LPAREN;lexeme=(;line=5;column=6;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=5;column=7;is_integer_literal=False
+type=RPAREN;lexeme=);line=5;column=8;is_integer_literal=False
+type=OP_PLUS;lexeme=+;line=5;column=10;is_integer_literal=False
+type=RPAREN;lexeme=);line=5;column=11;is_integer_literal=False
 
 [LINHA 6]
 type=LPAREN;lexeme=(;line=6;column=1;is_integer_literal=False
 type=LPAREN;lexeme=(;line=6;column=2;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=6;column=3;is_integer_literal=False
-type=RPAREN;lexeme=);line=6;column=4;is_integer_literal=False
-type=NUMBER;lexeme=2;line=6;column=6;value=2.0;is_integer_literal=True
-type=OP_MULT;lexeme=*;line=6;column=8;is_integer_literal=False
+type=LPAREN;lexeme=(;line=6;column=3;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=6;column=4;is_integer_literal=False
+type=RPAREN;lexeme=);line=6;column=5;is_integer_literal=False
+type=LPAREN;lexeme=(;line=6;column=7;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=6;column=8;is_integer_literal=False
 type=RPAREN;lexeme=);line=6;column=9;is_integer_literal=False
+type=OP_PLUS;lexeme=+;line=6;column=11;is_integer_literal=False
+type=RPAREN;lexeme=);line=6;column=12;is_integer_literal=False
+type=IDENTIFIER;lexeme=D;line=6;column=14;is_integer_literal=False
+type=RPAREN;lexeme=);line=6;column=15;is_integer_literal=False
 
 [LINHA 7]
 type=LPAREN;lexeme=(;line=7;column=1;is_integer_literal=False
-type=NUMBER;lexeme=9;line=7;column=2;value=9.0;is_integer_literal=True
-type=NUMBER;lexeme=2;line=7;column=4;value=2.0;is_integer_literal=True
-type=OP_INT_DIV;lexeme=/;line=7;column=6;is_integer_literal=False
-type=RPAREN;lexeme=);line=7;column=7;is_integer_literal=False
+type=LPAREN;lexeme=(;line=7;column=2;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=7;column=3;is_integer_literal=False
+type=RPAREN;lexeme=);line=7;column=4;is_integer_literal=False
+type=NUMBER;lexeme=2;line=7;column=6;value=2.0;is_integer_literal=True
+type=OP_POW;lexeme=^;line=7;column=8;is_integer_literal=False
+type=RPAREN;lexeme=);line=7;column=9;is_integer_literal=False
 
 [LINHA 8]
 type=LPAREN;lexeme=(;line=8;column=1;is_integer_literal=False
-type=NUMBER;lexeme=9.0;line=8;column=2;value=9.0;is_integer_literal=False
-type=NUMBER;lexeme=2.0;line=8;column=6;value=2.0;is_integer_literal=False
-type=OP_REAL_DIV;lexeme=|;line=8;column=10;is_integer_literal=False
+type=LPAREN;lexeme=(;line=8;column=2;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=8;column=3;is_integer_literal=False
+type=RPAREN;lexeme=);line=8;column=4;is_integer_literal=False
+type=LPAREN;lexeme=(;line=8;column=6;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=8;column=7;is_integer_literal=False
+type=RPAREN;lexeme=);line=8;column=8;is_integer_literal=False
+type=OP_MULT;lexeme=*;line=8;column=10;is_integer_literal=False
 type=RPAREN;lexeme=);line=8;column=11;is_integer_literal=False
 
 [LINHA 9]
 type=LPAREN;lexeme=(;line=9;column=1;is_integer_literal=False
-type=NUMBER;lexeme=9;line=9;column=2;value=9.0;is_integer_literal=True
-type=NUMBER;lexeme=4;line=9;column=4;value=4.0;is_integer_literal=True
-type=OP_MOD;lexeme=%;line=9;column=6;is_integer_literal=False
-type=RPAREN;lexeme=);line=9;column=7;is_integer_literal=False
+type=LPAREN;lexeme=(;line=9;column=2;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=9;column=3;is_integer_literal=False
+type=RPAREN;lexeme=);line=9;column=4;is_integer_literal=False
+type=LPAREN;lexeme=(;line=9;column=6;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=9;column=7;is_integer_literal=False
+type=RPAREN;lexeme=);line=9;column=8;is_integer_literal=False
+type=OP_INT_DIV;lexeme=/;line=9;column=10;is_integer_literal=False
+type=RPAREN;lexeme=);line=9;column=11;is_integer_literal=False
 
 [LINHA 10]
 type=LPAREN;lexeme=(;line=10;column=1;is_integer_literal=False
 type=LPAREN;lexeme=(;line=10;column=2;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=10;column=3;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=10;column=3;is_integer_literal=False
 type=RPAREN;lexeme=);line=10;column=4;is_integer_literal=False
-type=NUMBER;lexeme=2;line=10;column=6;value=2.0;is_integer_literal=True
-type=OP_POW;lexeme=^;line=10;column=8;is_integer_literal=False
-type=RPAREN;lexeme=);line=10;column=9;is_integer_literal=False
+type=LPAREN;lexeme=(;line=10;column=6;is_integer_literal=False
+type=IDENTIFIER;lexeme=C;line=10;column=7;is_integer_literal=False
+type=RPAREN;lexeme=);line=10;column=8;is_integer_literal=False
+type=OP_REAL_DIV;lexeme=|;line=10;column=10;is_integer_literal=False
+type=RPAREN;lexeme=);line=10;column=11;is_integer_literal=False
 
 [LINHA 11]
 type=LPAREN;lexeme=(;line=11;column=1;is_integer_literal=False
 type=LPAREN;lexeme=(;line=11;column=2;is_integer_literal=False
-type=NUMBER;lexeme=1;line=11;column=3;value=1.0;is_integer_literal=True
-type=KW_RES;lexeme=RES;line=11;column=5;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=11;column=3;is_integer_literal=False
+type=RPAREN;lexeme=);line=11;column=4;is_integer_literal=False
+type=LPAREN;lexeme=(;line=11;column=6;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=11;column=7;is_integer_literal=False
 type=RPAREN;lexeme=);line=11;column=8;is_integer_literal=False
-type=LPAREN;lexeme=(;line=11;column=10;is_integer_literal=False
-type=LPAREN;lexeme=(;line=11;column=11;is_integer_literal=False
-type=NUMBER;lexeme=5;line=11;column=12;value=5.0;is_integer_literal=True
-type=IDENTIFIER;lexeme=Z;line=11;column=14;is_integer_literal=False
-type=RPAREN;lexeme=);line=11;column=15;is_integer_literal=False
-type=LPAREN;lexeme=(;line=11;column=17;is_integer_literal=False
-type=LPAREN;lexeme=(;line=11;column=18;is_integer_literal=False
-type=IDENTIFIER;lexeme=Z;line=11;column=19;is_integer_literal=False
-type=RPAREN;lexeme=);line=11;column=20;is_integer_literal=False
-type=LPAREN;lexeme=(;line=11;column=22;is_integer_literal=False
-type=IDENTIFIER;lexeme=Y;line=11;column=23;is_integer_literal=False
-type=RPAREN;lexeme=);line=11;column=24;is_integer_literal=False
-type=OP_PLUS;lexeme=+;line=11;column=26;is_integer_literal=False
-type=RPAREN;lexeme=);line=11;column=27;is_integer_literal=False
-type=KW_SEQ;lexeme=SEQ;line=11;column=29;is_integer_literal=False
-type=RPAREN;lexeme=);line=11;column=32;is_integer_literal=False
-type=KW_IF;lexeme=IF;line=11;column=34;is_integer_literal=False
-type=RPAREN;lexeme=);line=11;column=36;is_integer_literal=False
+type=OP_MOD;lexeme=%;line=11;column=10;is_integer_literal=False
+type=RPAREN;lexeme=);line=11;column=11;is_integer_literal=False
 
 [LINHA 12]
 type=LPAREN;lexeme=(;line=12;column=1;is_integer_literal=False
 type=LPAREN;lexeme=(;line=12;column=2;is_integer_literal=False
 type=LPAREN;lexeme=(;line=12;column=3;is_integer_literal=False
 type=LPAREN;lexeme=(;line=12;column=4;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=12;column=5;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=12;column=5;is_integer_literal=False
 type=RPAREN;lexeme=);line=12;column=6;is_integer_literal=False
-type=NUMBER;lexeme=0;line=12;column=8;value=0.0;is_integer_literal=True
-type=OP_GT;lexeme=>;line=12;column=10;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=11;is_integer_literal=False
-type=LPAREN;lexeme=(;line=12;column=13;is_integer_literal=False
-type=LPAREN;lexeme=(;line=12;column=14;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=8;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=12;column=9;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=10;is_integer_literal=False
+type=OP_LT;lexeme=<;line=12;column=12;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=13;is_integer_literal=False
 type=LPAREN;lexeme=(;line=12;column=15;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=12;column=16;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=17;is_integer_literal=False
-type=NUMBER;lexeme=1;line=12;column=19;value=1.0;is_integer_literal=True
-type=OP_MINUS;lexeme=-;line=12;column=21;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=22;is_integer_literal=False
-type=IDENTIFIER;lexeme=X;line=12;column=24;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=25;is_integer_literal=False
-type=KW_WHILE;lexeme=WHILE;line=12;column=27;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=32;is_integer_literal=False
-type=LPAREN;lexeme=(;line=12;column=34;is_integer_literal=False
-type=LPAREN;lexeme=(;line=12;column=35;is_integer_literal=False
-type=LPAREN;lexeme=(;line=12;column=36;is_integer_literal=False
-type=IDENTIFIER;lexeme=Y;line=12;column=37;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=16;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=17;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=12;column=18;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=19;is_integer_literal=False
+type=NUMBER;lexeme=1;line=12;column=21;value=1.0;is_integer_literal=True
+type=OP_PLUS;lexeme=+;line=12;column=23;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=24;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=12;column=26;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=27;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=29;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=30;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=31;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=12;column=32;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=33;is_integer_literal=False
+type=NUMBER;lexeme=1;line=12;column=35;value=1.0;is_integer_literal=True
+type=OP_PLUS;lexeme=+;line=12;column=37;is_integer_literal=False
 type=RPAREN;lexeme=);line=12;column=38;is_integer_literal=False
-type=NUMBER;lexeme=1;line=12;column=40;value=1.0;is_integer_literal=True
-type=OP_PLUS;lexeme=+;line=12;column=42;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=43;is_integer_literal=False
-type=IDENTIFIER;lexeme=Y;line=12;column=45;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=46;is_integer_literal=False
-type=KW_SEQ;lexeme=SEQ;line=12;column=48;is_integer_literal=False
-type=RPAREN;lexeme=);line=12;column=51;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=12;column=40;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=41;is_integer_literal=False
+type=KW_IFELSE;lexeme=IFELSE;line=12;column=43;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=49;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=51;is_integer_literal=False
+type=LPAREN;lexeme=(;line=12;column=52;is_integer_literal=False
+type=NUMBER;lexeme=2;line=12;column=53;value=2.0;is_integer_literal=True
+type=KW_RES;lexeme=RES;line=12;column=55;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=58;is_integer_literal=False
+type=IDENTIFIER;lexeme=OUT;line=12;column=60;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=63;is_integer_literal=False
+type=KW_SEQ;lexeme=SEQ;line=12;column=65;is_integer_literal=False
+type=RPAREN;lexeme=);line=12;column=68;is_integer_literal=False
 
 [LINHA 13]
 type=LPAREN;lexeme=(;line=13;column=1;is_integer_literal=False
-type=KW_END;lexeme=END;line=13;column=2;is_integer_literal=False
-type=RPAREN;lexeme=);line=13;column=5;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=2;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=3;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=4;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=13;column=5;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=6;is_integer_literal=False
+type=NUMBER;lexeme=0;line=13;column=8;value=0.0;is_integer_literal=True
+type=OP_GT;lexeme=>;line=13;column=10;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=11;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=13;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=14;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=15;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=13;column=16;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=17;is_integer_literal=False
+type=NUMBER;lexeme=1;line=13;column=19;value=1.0;is_integer_literal=True
+type=OP_MINUS;lexeme=-;line=13;column=21;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=22;is_integer_literal=False
+type=IDENTIFIER;lexeme=A;line=13;column=24;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=25;is_integer_literal=False
+type=KW_WHILE;lexeme=WHILE;line=13;column=27;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=32;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=34;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=35;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=36;is_integer_literal=False
+type=IDENTIFIER;lexeme=OUT;line=13;column=37;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=40;is_integer_literal=False
+type=LPAREN;lexeme=(;line=13;column=42;is_integer_literal=False
+type=IDENTIFIER;lexeme=B;line=13;column=43;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=44;is_integer_literal=False
+type=OP_PLUS;lexeme=+;line=13;column=46;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=47;is_integer_literal=False
+type=IDENTIFIER;lexeme=OUT;line=13;column=49;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=52;is_integer_literal=False
+type=KW_SEQ;lexeme=SEQ;line=13;column=54;is_integer_literal=False
+type=RPAREN;lexeme=);line=13;column=57;is_integer_literal=False
+
+[LINHA 14]
+type=LPAREN;lexeme=(;line=14;column=1;is_integer_literal=False
+type=KW_END;lexeme=END;line=14;column=2;is_integer_literal=False
+type=RPAREN;lexeme=);line=14;column=5;is_integer_literal=False

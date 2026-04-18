@@ -10,11 +10,11 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 2
-    @ (10 X)
+    @ (4 A)
     @ ================================================
     ldr r0, =const_0
     vldr d0, [r0]
-    ldr r0, =mem_X
+    ldr r0, =mem_A
     vstr d0, [r0]
     ldr r0, =result_line_1
     vstr d0, [r0]
@@ -26,11 +26,11 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 3
-    @ (3 Y)
+    @ (2 B)
     @ ================================================
     ldr r0, =const_1
     vldr d0, [r0]
-    ldr r0, =mem_Y
+    ldr r0, =mem_B
     vstr d0, [r0]
     ldr r0, =result_line_2
     vstr d0, [r0]
@@ -42,21 +42,12 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 4
-    @ ((X) (Y) +)
+    @ (1.5 C)
     @ ================================================
-    ldr r0, =mem_X
+    ldr r0, =const_2
     vldr d0, [r0]
-    ldr r0, =tmp_slot_0
+    ldr r0, =mem_C
     vstr d0, [r0]
-    ldr r0, =mem_Y
-    vldr d0, [r0]
-    ldr r0, =tmp_slot_1
-    vstr d0, [r0]
-    ldr r0, =tmp_slot_0
-    vldr d0, [r0]
-    ldr r0, =tmp_slot_1
-    vldr d1, [r0]
-    vadd.f64 d0, d0, d1
     ldr r0, =result_line_3
     vstr d0, [r0]
     ldr r0, =msg_line_3
@@ -67,13 +58,13 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 5
-    @ ((X) 2 -)
+    @ ((A) (B) +)
     @ ================================================
-    ldr r0, =mem_X
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    ldr r0, =const_2
+    ldr r0, =mem_B
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
@@ -81,7 +72,7 @@ _start:
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
-    vsub.f64 d0, d0, d1
+    vadd.f64 d0, d0, d1
     ldr r0, =result_line_4
     vstr d0, [r0]
     ldr r0, =msg_line_4
@@ -92,13 +83,13 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 6
-    @ ((X) 2 *)
+    @ (((A) (B) +) D)
     @ ================================================
-    ldr r0, =mem_X
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    ldr r0, =const_2
+    ldr r0, =mem_B
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
@@ -106,7 +97,9 @@ _start:
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
-    vmul.f64 d0, d0, d1
+    vadd.f64 d0, d0, d1
+    ldr r0, =mem_D
+    vstr d0, [r0]
     ldr r0, =result_line_5
     vstr d0, [r0]
     ldr r0, =msg_line_5
@@ -117,13 +110,13 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 7
-    @ (9 2 /)
+    @ ((A) 2 ^)
     @ ================================================
-    ldr r0, =const_3
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    ldr r0, =const_2
+    ldr r0, =const_1
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
@@ -131,7 +124,7 @@ _start:
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
-    bl intdiv_double
+    bl pow_double_int
     ldr r0, =result_line_6
     vstr d0, [r0]
     ldr r0, =msg_line_6
@@ -142,13 +135,13 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 8
-    @ (9.0 2.0 |)
+    @ ((A) (B) *)
     @ ================================================
-    ldr r0, =const_3
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    ldr r0, =const_2
+    ldr r0, =mem_B
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
@@ -156,7 +149,7 @@ _start:
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
-    vdiv.f64 d0, d0, d1
+    vmul.f64 d0, d0, d1
     ldr r0, =result_line_7
     vstr d0, [r0]
     ldr r0, =msg_line_7
@@ -167,9 +160,111 @@ _start:
     .balign 4
     @ ================================================
     @ LINHA 9
-    @ (9 4 %)
+    @ ((A) (B) /)
     @ ================================================
+    ldr r0, =mem_A
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vstr d0, [r0]
+    ldr r0, =mem_B
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vstr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vldr d1, [r0]
+    bl intdiv_double
+    ldr r0, =result_line_8
+    vstr d0, [r0]
+    ldr r0, =msg_line_8
+    bl puts_jtag
+    bl print_qword_hex_d0
+    bl print_newline
+
+    .balign 4
+    @ ================================================
+    @ LINHA 10
+    @ ((A) (C) |)
+    @ ================================================
+    ldr r0, =mem_A
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vstr d0, [r0]
+    ldr r0, =mem_C
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vstr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vldr d1, [r0]
+    vdiv.f64 d0, d0, d1
+    ldr r0, =result_line_9
+    vstr d0, [r0]
+    ldr r0, =msg_line_9
+    bl puts_jtag
+    bl print_qword_hex_d0
+    bl print_newline
+
+    .balign 4
+    @ ================================================
+    @ LINHA 11
+    @ ((A) (B) %)
+    @ ================================================
+    ldr r0, =mem_A
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vstr d0, [r0]
+    ldr r0, =mem_B
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vstr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vldr d1, [r0]
+    bl mod_double
+    ldr r0, =result_line_10
+    vstr d0, [r0]
+    ldr r0, =msg_line_10
+    bl puts_jtag
+    bl print_qword_hex_d0
+    bl print_newline
+
+    .balign 4
+    @ ================================================
+    @ LINHA 12
+    @ ((((A) (B) <) (((A) 1 +) A) (((B) 1 +) B) IFELSE) ((2 RES) OUT) SEQ)
+    @ ================================================
+    ldr r0, =mem_A
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vstr d0, [r0]
+    ldr r0, =mem_B
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vstr d0, [r0]
+    ldr r0, =tmp_slot_0
+    vldr d0, [r0]
+    ldr r0, =tmp_slot_1
+    vldr d1, [r0]
+    vcmp.f64 d0, d1
+    vmrs APSR_nzcv, fpscr
+    blt rel_true_2
     ldr r0, =const_3
+    vldr d0, [r0]
+    b rel_end_3
+rel_true_2:
+    ldr r0, =const_4
+    vldr d0, [r0]
+rel_end_3:
+    ldr r0, =const_3
+    vldr d1, [r0]
+    vcmp.f64 d0, d1
+    vmrs APSR_nzcv, fpscr
+    beq if_else_0
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
@@ -181,60 +276,16 @@ _start:
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
-    bl mod_double
-    ldr r0, =result_line_8
+    vadd.f64 d0, d0, d1
+    ldr r0, =mem_A
     vstr d0, [r0]
-    ldr r0, =msg_line_8
-    bl puts_jtag
-    bl print_qword_hex_d0
-    bl print_newline
-
-    .balign 4
-    @ ================================================
-    @ LINHA 10
-    @ ((X) 2 ^)
-    @ ================================================
-    ldr r0, =mem_X
+    b if_end_1
+if_else_0:
+    ldr r0, =mem_B
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    ldr r0, =const_2
-    vldr d0, [r0]
-    ldr r0, =tmp_slot_1
-    vstr d0, [r0]
-    ldr r0, =tmp_slot_0
-    vldr d0, [r0]
-    ldr r0, =tmp_slot_1
-    vldr d1, [r0]
-    bl pow_double_int
-    ldr r0, =result_line_9
-    vstr d0, [r0]
-    ldr r0, =msg_line_9
-    bl puts_jtag
-    bl print_qword_hex_d0
-    bl print_newline
-
-    .balign 4
-    @ ================================================
-    @ LINHA 11
-    @ ((1 RES) ((5 Z) ((Z) (Y) +) SEQ) IF)
-    @ ================================================
-    ldr r0, =result_line_9
-    vldr d0, [r0]
-    ldr r0, =const_5
-    vldr d1, [r0]
-    vcmp.f64 d0, d1
-    vmrs APSR_nzcv, fpscr
-    beq if_else_0
-    ldr r0, =const_6
-    vldr d0, [r0]
-    ldr r0, =mem_Z
-    vstr d0, [r0]
-    ldr r0, =mem_Z
-    vldr d0, [r0]
-    ldr r0, =tmp_slot_0
-    vstr d0, [r0]
-    ldr r0, =mem_Y
+    ldr r0, =const_4
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
@@ -243,33 +294,35 @@ _start:
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
     vadd.f64 d0, d0, d1
-    b if_end_1
-if_else_0:
-    ldr r0, =const_5
-    vldr d0, [r0]
-if_end_1:
-    ldr r0, =result_line_10
+    ldr r0, =mem_B
     vstr d0, [r0]
-    ldr r0, =msg_line_10
+if_end_1:
+    ldr r0, =result_line_9
+    vldr d0, [r0]
+    ldr r0, =mem_OUT
+    vstr d0, [r0]
+    ldr r0, =result_line_11
+    vstr d0, [r0]
+    ldr r0, =msg_line_11
     bl puts_jtag
     bl print_qword_hex_d0
     bl print_newline
 
     .balign 4
     @ ================================================
-    @ LINHA 12
-    @ ((((X) 0 >) (((X) 1 -) X) WHILE) (((Y) 1 +) Y) SEQ)
+    @ LINHA 13
+    @ ((((A) 0 >) (((A) 1 -) A) WHILE) (((OUT) (B) +) OUT) SEQ)
     @ ================================================
-    ldr r0, =const_5
+    ldr r0, =const_3
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-while_start_2:
-    ldr r0, =mem_X
+while_start_4:
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
-    ldr r0, =const_5
+    ldr r0, =const_3
     vldr d0, [r0]
     ldr r0, =tmp_slot_2
     vstr d0, [r0]
@@ -279,24 +332,24 @@ while_start_2:
     vldr d1, [r0]
     vcmp.f64 d0, d1
     vmrs APSR_nzcv, fpscr
-    bgt rel_true_4
-    ldr r0, =const_5
+    bgt rel_true_6
+    ldr r0, =const_3
     vldr d0, [r0]
-    b rel_end_5
-rel_true_4:
-    ldr r0, =const_7
+    b rel_end_7
+rel_true_6:
+    ldr r0, =const_4
     vldr d0, [r0]
-rel_end_5:
-    ldr r0, =const_5
+rel_end_7:
+    ldr r0, =const_3
     vldr d1, [r0]
     vcmp.f64 d0, d1
     vmrs APSR_nzcv, fpscr
-    beq while_end_3
-    ldr r0, =mem_X
+    beq while_end_5
+    ldr r0, =mem_A
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
-    ldr r0, =const_7
+    ldr r0, =const_4
     vldr d0, [r0]
     ldr r0, =tmp_slot_2
     vstr d0, [r0]
@@ -305,19 +358,19 @@ rel_end_5:
     ldr r0, =tmp_slot_2
     vldr d1, [r0]
     vsub.f64 d0, d0, d1
-    ldr r0, =mem_X
+    ldr r0, =mem_A
     vstr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    b while_start_2
-while_end_3:
+    b while_start_4
+while_end_5:
     ldr r0, =tmp_slot_0
     vldr d0, [r0]
-    ldr r0, =mem_Y
+    ldr r0, =mem_OUT
     vldr d0, [r0]
     ldr r0, =tmp_slot_0
     vstr d0, [r0]
-    ldr r0, =const_7
+    ldr r0, =mem_B
     vldr d0, [r0]
     ldr r0, =tmp_slot_1
     vstr d0, [r0]
@@ -326,11 +379,11 @@ while_end_3:
     ldr r0, =tmp_slot_1
     vldr d1, [r0]
     vadd.f64 d0, d0, d1
-    ldr r0, =mem_Y
+    ldr r0, =mem_OUT
     vstr d0, [r0]
-    ldr r0, =result_line_11
+    ldr r0, =result_line_12
     vstr d0, [r0]
-    ldr r0, =msg_line_11
+    ldr r0, =msg_line_12
     bl puts_jtag
     bl print_qword_hex_d0
     bl print_newline
@@ -547,6 +600,9 @@ msg_line_10:
     .balign 4
 msg_line_11:
     .asciz "L12: 0x"
+    .balign 4
+msg_line_12:
+    .asciz "L13: 0x"
 
     .balign 8
 result_line_1:
@@ -571,13 +627,19 @@ result_line_10:
     .double 0.0
 result_line_11:
     .double 0.0
+result_line_12:
+    .double 0.0
 
     .balign 8
-mem_X:
+mem_A:
     .double 0.0
-mem_Y:
+mem_B:
     .double 0.0
-mem_Z:
+mem_C:
+    .double 0.0
+mem_D:
+    .double 0.0
+mem_OUT:
     .double 0.0
 
     .balign 8
@@ -590,26 +652,17 @@ tmp_slot_2:
 
     .balign 8
 const_0:
-    .double 10.0
-    .balign 8
-const_1:
-    .double 3.0
-    .balign 8
-const_2:
-    .double 2.0
-    .balign 8
-const_3:
-    .double 9.0
-    .balign 8
-const_4:
     .double 4.0
     .balign 8
-const_5:
+const_1:
+    .double 2.0
+    .balign 8
+const_2:
+    .double 1.5
+    .balign 8
+const_3:
     .double 0.0
     .balign 8
-const_6:
-    .double 5.0
-    .balign 8
-const_7:
+const_4:
     .double 1.0
 

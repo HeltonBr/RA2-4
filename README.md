@@ -9,6 +9,7 @@ Esta fase amplia a Fase 1 para construir um analisador sintatico LL(1), gerar a 
 - Instituicao: Pontificia Universidade Catolica do Parana (PUC-PR)
 - Ano: 2026
 - Disciplina: Linguagens Formais e Compiladores
+- Professor: Frank Coelho de Alcantara
 - Integrante: Helton Tessari Brandao - `HeltonBr`
 - Grupo no Canvas: `RA2-4`
 
@@ -43,6 +44,16 @@ $env:PYTHONPATH='src'
 python -m analisador_sintatico_ll1.main tests/teste1.txt
 ```
 
+Ao final da execucao, o projeto atualiza:
+
+- `generated/tokens_ultima_execucao.txt`
+- `generated/arvore_ultima_execucao.json`
+- `generated/ultimo_assembly.s`
+- `docs/arvore_ultima_execucao.md`
+- `docs/gramatica.md`
+- `docs/first_follow.md`
+- `docs/tabela_ll1.md`
+
 ## Testes
 
 Para rodar a suite automatizada:
@@ -51,6 +62,20 @@ Para rodar a suite automatizada:
 $env:PYTHONPATH='src'
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
+
+## Depuracao e validacao
+
+Fluxo sugerido para depurar a ultima execucao:
+
+1. Rodar `python AnalisadorSintatico.py tests/teste1.txt`.
+2. Conferir se os arquivos em `generated/` foram atualizados.
+3. Abrir `docs/arvore_ultima_execucao.md` para validar a estrutura da AST.
+4. Inspecionar `generated/ultimo_assembly.s`.
+5. Validar o Assembly no CPULATOR ARMv7 DE1-SoC.
+
+Referencia do simulador:
+
+- https://cpulator.01xz.net/?sys=arm-de1soc
 
 ## Funcoes principais
 
@@ -87,6 +112,18 @@ Observacao importante: o uso de memoria como operando sera documentado na forma 
 - Gramatica, FIRST/FOLLOW e tabela LL(1): gerados em `docs/`
 - Ultima arvore sintatica em markdown: `docs/arvore_ultima_execucao.md`
 - Ultimos artefatos persistidos: `generated/`
+
+## Exemplo rapido
+
+Exemplo de estrutura valida da linguagem:
+
+```text
+(START)
+(10 X)
+((X) 2 +)
+(((X) 0 >) (((X) 1 -) X) WHILE)
+(END)
+```
 
 ## Proximos marcos
 
