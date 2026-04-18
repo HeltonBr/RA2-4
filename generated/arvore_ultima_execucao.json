@@ -1,0 +1,352 @@
+{
+  "type": "Program",
+  "statement_count": 11,
+  "statements": [
+    {
+      "ordinal": 1,
+      "source_line": 2,
+      "tree": {
+        "type": "MemoryWrite",
+        "name": "X",
+        "line": 2,
+        "column": 5,
+        "value": {
+          "type": "Number",
+          "value": 10.0,
+          "lexeme": "10",
+          "line": 2,
+          "column": 2,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 2,
+      "source_line": 3,
+      "tree": {
+        "type": "MemoryWrite",
+        "name": "Y",
+        "line": 3,
+        "column": 4,
+        "value": {
+          "type": "Number",
+          "value": 3.0,
+          "lexeme": "3",
+          "line": 3,
+          "column": 2,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 3,
+      "source_line": 4,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "+",
+        "line": 4,
+        "column": 10,
+        "left": {
+          "type": "MemoryRead",
+          "name": "X",
+          "line": 4,
+          "column": 3
+        },
+        "right": {
+          "type": "MemoryRead",
+          "name": "Y",
+          "line": 4,
+          "column": 7
+        }
+      }
+    },
+    {
+      "ordinal": 4,
+      "source_line": 5,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "-",
+        "line": 5,
+        "column": 8,
+        "left": {
+          "type": "MemoryRead",
+          "name": "X",
+          "line": 5,
+          "column": 3
+        },
+        "right": {
+          "type": "Number",
+          "value": 2.0,
+          "lexeme": "2",
+          "line": 5,
+          "column": 6,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 5,
+      "source_line": 6,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "*",
+        "line": 6,
+        "column": 8,
+        "left": {
+          "type": "MemoryRead",
+          "name": "X",
+          "line": 6,
+          "column": 3
+        },
+        "right": {
+          "type": "Number",
+          "value": 2.0,
+          "lexeme": "2",
+          "line": 6,
+          "column": 6,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 6,
+      "source_line": 7,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "/",
+        "line": 7,
+        "column": 6,
+        "left": {
+          "type": "Number",
+          "value": 9.0,
+          "lexeme": "9",
+          "line": 7,
+          "column": 2,
+          "is_integer_literal": true
+        },
+        "right": {
+          "type": "Number",
+          "value": 2.0,
+          "lexeme": "2",
+          "line": 7,
+          "column": 4,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 7,
+      "source_line": 8,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "|",
+        "line": 8,
+        "column": 10,
+        "left": {
+          "type": "Number",
+          "value": 9.0,
+          "lexeme": "9.0",
+          "line": 8,
+          "column": 2,
+          "is_integer_literal": false
+        },
+        "right": {
+          "type": "Number",
+          "value": 2.0,
+          "lexeme": "2.0",
+          "line": 8,
+          "column": 6,
+          "is_integer_literal": false
+        }
+      }
+    },
+    {
+      "ordinal": 8,
+      "source_line": 9,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "%",
+        "line": 9,
+        "column": 6,
+        "left": {
+          "type": "Number",
+          "value": 9.0,
+          "lexeme": "9",
+          "line": 9,
+          "column": 2,
+          "is_integer_literal": true
+        },
+        "right": {
+          "type": "Number",
+          "value": 4.0,
+          "lexeme": "4",
+          "line": 9,
+          "column": 4,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 9,
+      "source_line": 10,
+      "tree": {
+        "type": "BinaryOp",
+        "operator": "^",
+        "line": 10,
+        "column": 8,
+        "left": {
+          "type": "MemoryRead",
+          "name": "X",
+          "line": 10,
+          "column": 3
+        },
+        "right": {
+          "type": "Number",
+          "value": 2.0,
+          "lexeme": "2",
+          "line": 10,
+          "column": 6,
+          "is_integer_literal": true
+        }
+      }
+    },
+    {
+      "ordinal": 10,
+      "source_line": 11,
+      "tree": {
+        "type": "If",
+        "line": 11,
+        "column": 34,
+        "condition": {
+          "type": "ResultRef",
+          "offset": 1,
+          "line": 11,
+          "column": 5
+        },
+        "then": {
+          "type": "Sequence",
+          "line": 11,
+          "column": 29,
+          "first": {
+            "type": "MemoryWrite",
+            "name": "Z",
+            "line": 11,
+            "column": 14,
+            "value": {
+              "type": "Number",
+              "value": 5.0,
+              "lexeme": "5",
+              "line": 11,
+              "column": 12,
+              "is_integer_literal": true
+            }
+          },
+          "second": {
+            "type": "BinaryOp",
+            "operator": "+",
+            "line": 11,
+            "column": 26,
+            "left": {
+              "type": "MemoryRead",
+              "name": "Z",
+              "line": 11,
+              "column": 19
+            },
+            "right": {
+              "type": "MemoryRead",
+              "name": "Y",
+              "line": 11,
+              "column": 23
+            }
+          }
+        }
+      }
+    },
+    {
+      "ordinal": 11,
+      "source_line": 12,
+      "tree": {
+        "type": "Sequence",
+        "line": 12,
+        "column": 48,
+        "first": {
+          "type": "While",
+          "line": 12,
+          "column": 27,
+          "condition": {
+            "type": "RelationalOp",
+            "operator": ">",
+            "line": 12,
+            "column": 10,
+            "left": {
+              "type": "MemoryRead",
+              "name": "X",
+              "line": 12,
+              "column": 5
+            },
+            "right": {
+              "type": "Number",
+              "value": 0.0,
+              "lexeme": "0",
+              "line": 12,
+              "column": 8,
+              "is_integer_literal": true
+            }
+          },
+          "body": {
+            "type": "MemoryWrite",
+            "name": "X",
+            "line": 12,
+            "column": 24,
+            "value": {
+              "type": "BinaryOp",
+              "operator": "-",
+              "line": 12,
+              "column": 21,
+              "left": {
+                "type": "MemoryRead",
+                "name": "X",
+                "line": 12,
+                "column": 16
+              },
+              "right": {
+                "type": "Number",
+                "value": 1.0,
+                "lexeme": "1",
+                "line": 12,
+                "column": 19,
+                "is_integer_literal": true
+              }
+            }
+          }
+        },
+        "second": {
+          "type": "MemoryWrite",
+          "name": "Y",
+          "line": 12,
+          "column": 45,
+          "value": {
+            "type": "BinaryOp",
+            "operator": "+",
+            "line": 12,
+            "column": 42,
+            "left": {
+              "type": "MemoryRead",
+              "name": "Y",
+              "line": 12,
+              "column": 37
+            },
+            "right": {
+              "type": "Number",
+              "value": 1.0,
+              "lexeme": "1",
+              "line": 12,
+              "column": 40,
+              "is_integer_literal": true
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,85 +1,48 @@
 # Integrantes do grupo (ordem alfabetica):
-# TODO - username1
-# TODO - username2
-# TODO - username3
-# TODO - username4
+# Helton Tessari Brandao - HeltonBr
 #
-# Nome do grupo no Canvas: TODO
+# Nome do grupo no Canvas: RA2-4
 
 from __future__ import annotations
 
 from dataclasses import dataclass
-from enum import Enum, auto
-from pathlib import Path
 from typing import Any
 
-
-class TokenType(Enum):
-    LPAREN = auto()
-    RPAREN = auto()
-    NUMBER = auto()
-    IDENTIFIER = auto()
-    KW_START = auto()
-    KW_END = auto()
-    KW_RES = auto()
-    KW_SEQ = auto()
-    KW_IF = auto()
-    KW_IFELSE = auto()
-    KW_WHILE = auto()
-    OP_PLUS = auto()
-    OP_MINUS = auto()
-    OP_MULT = auto()
-    OP_REAL_DIV = auto()
-    OP_INT_DIV = auto()
-    OP_MOD = auto()
-    OP_POW = auto()
-    OP_GT = auto()
-    OP_LT = auto()
-    OP_GTE = auto()
-    OP_LTE = auto()
-    OP_EQ = auto()
-    OP_NEQ = auto()
-
-
-@dataclass(slots=True)
-class Token:
-    token_type: TokenType
-    lexeme: str
-    line: int
-    column: int
-    numeric_value: float | None = None
-    is_integer_literal: bool = False
-
-
-@dataclass(slots=True)
-class GrammarBundle:
-    productions: dict[str, list[list[str]]]
-    first: dict[str, set[str]]
-    follow: dict[str, set[str]]
-    parsing_table: dict[str, dict[str, list[str]]]
-
-
-@dataclass(slots=True)
-class ParseResult:
-    derivation: list[str]
-    syntax_tree_seed: Any
-
-
-def lerTokens(arquivo: str | Path) -> list[list[Token]]:
-    raise NotImplementedError("Etapa 2: leitura de tokens ainda nao implementada.")
-
-
-def construirGramatica() -> GrammarBundle:
-    raise NotImplementedError("Etapa 3: construcao da gramatica ainda nao implementada.")
-
-
-def parsear(tokens: list[list[Token]], tabela_ll1: GrammarBundle) -> ParseResult:
-    raise NotImplementedError("Etapa 4: parser ainda nao implementado.")
+from analisador_sintatico_ll1.ast_nodes import ProgramNode
+from analisador_sintatico_ll1.ast_nodes import program_to_dict
+from analisador_sintatico_ll1.ast_nodes import render_program_tree
+from analisador_sintatico_ll1.codegen_arm import gerarAssembly
+from analisador_sintatico_ll1.grammar import GrammarBundle
+from analisador_sintatico_ll1.grammar import construirGramatica
+from analisador_sintatico_ll1.parser_ll1 import ParseResult
+from analisador_sintatico_ll1.parser_ll1 import parsear
+from analisador_sintatico_ll1.tokens import Token
+from analisador_sintatico_ll1.tokens import TokenType
+from analisador_sintatico_ll1.tokens import lerTokens
+from analisador_sintatico_ll1.tokens import salvar_tokens_em_arquivo
 
 
 def gerarArvore(derivacao: ParseResult) -> dict[str, Any]:
-    raise NotImplementedError("Etapa 5: geracao da arvore ainda nao implementada.")
+    program = derivacao.syntax_tree_seed
+    if not isinstance(program, ProgramNode):
+        raise TypeError("ParseResult nao contem uma ProgramNode valida.")
+    return {
+        "program": program_to_dict(program),
+        "tree_text": render_program_tree(program),
+        "derivation": derivacao.derivation,
+        "_ast": program,
+    }
 
 
-def gerarAssembly(arvore: dict[str, Any]) -> str:
-    raise NotImplementedError("Etapa 7: geracao de Assembly ainda nao implementada.")
+__all__ = [
+    "GrammarBundle",
+    "ParseResult",
+    "Token",
+    "TokenType",
+    "construirGramatica",
+    "gerarArvore",
+    "gerarAssembly",
+    "lerTokens",
+    "parsear",
+    "salvar_tokens_em_arquivo",
+]

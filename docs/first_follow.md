@@ -1,0 +1,15 @@
+# Conjuntos FIRST e FOLLOW
+
+| Nao-terminal | FIRST | FOLLOW |
+| --- | --- | --- |
+| `program` | `LPAREN` | `EOF` |
+| `start_line` | `LPAREN` | `LPAREN` |
+| `program_body` | `LPAREN` | `EOF` |
+| `program_body_after_lparen` | `IDENTIFIER, KW_END, LPAREN, NUMBER` | `EOF` |
+| `stmt` | `LPAREN` | `IDENTIFIER, KW_IF, KW_IFELSE, KW_RES, KW_SEQ, KW_WHILE, LPAREN, NUMBER, OP_EQ, OP_GT, OP_GTE, OP_INT_DIV, OP_LT, OP_LTE, OP_MINUS, OP_MOD, OP_MULT, OP_NEQ, OP_PLUS, OP_POW, OP_REAL_DIV` |
+| `stmt_inner` | `IDENTIFIER, LPAREN, NUMBER` | `RPAREN` |
+| `item` | `LPAREN, NUMBER` | `IDENTIFIER, KW_IF, KW_IFELSE, KW_RES, KW_SEQ, KW_WHILE, LPAREN, NUMBER, OP_EQ, OP_GT, OP_GTE, OP_INT_DIV, OP_LT, OP_LTE, OP_MINUS, OP_MOD, OP_MULT, OP_NEQ, OP_PLUS, OP_POW, OP_REAL_DIV` |
+| `stmt_after_first` | `IDENTIFIER, KW_RES, LPAREN, NUMBER` | `RPAREN` |
+| `stmt_after_second` | `KW_IF, KW_SEQ, KW_WHILE, LPAREN, NUMBER, OP_EQ, OP_GT, OP_GTE, OP_INT_DIV, OP_LT, OP_LTE, OP_MINUS, OP_MOD, OP_MULT, OP_NEQ, OP_PLUS, OP_POW, OP_REAL_DIV` | `RPAREN` |
+| `binary_op` | `OP_INT_DIV, OP_MINUS, OP_MOD, OP_MULT, OP_PLUS, OP_POW, OP_REAL_DIV` | `RPAREN` |
+| `relational_op` | `OP_EQ, OP_GT, OP_GTE, OP_LT, OP_LTE, OP_NEQ` | `RPAREN` |
