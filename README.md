@@ -40,8 +40,7 @@ python AnalisadorSintatico.py tests/teste1.txt
 Se preferir executar como modulo:
 
 ```powershell
-$env:PYTHONPATH='src'
-python -m analisador_sintatico_ll1.main tests/teste1.txt
+python -m analisador_sintatico_ll1 tests/teste1.txt
 ```
 
 Ao final da execucao, o projeto atualiza:
@@ -59,9 +58,10 @@ Ao final da execucao, o projeto atualiza:
 Para rodar a suite automatizada:
 
 ```powershell
-$env:PYTHONPATH='src'
 python -m unittest discover -s tests -p "test_*.py" -v
 ```
+
+Observacao: o repositorio inclui um pacote-raiz compativel em `analisador_sintatico_ll1/`, entao os comandos acima funcionam no diretorio raiz sem precisar configurar `PYTHONPATH` manualmente.
 
 ## Depuracao e validacao
 
@@ -108,6 +108,7 @@ Observacao importante: o uso de memoria como operando sera documentado na forma 
 - Requisitos analisados: `docs/analise-requisitos.md`
 - Planejamento incremental: `docs/plano-evolucao.md`
 - Linha do tempo das tarefas: `docs/linha-do-tempo.md`
+- Auditoria automatizada da entrega: `docs/auditoria-entrega.md`
 - Sintaxe de controle: `docs/sintaxe_controle.md`
 - Gramatica, FIRST/FOLLOW e tabela LL(1): gerados em `docs/`
 - Ultima arvore sintatica em markdown: `docs/arvore_ultima_execucao.md`

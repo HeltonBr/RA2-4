@@ -105,3 +105,85 @@ Eliminar traceback bruto na interface de linha de comando, melhorar mensagens si
 - Auditar README, markdowns tecnicos e estrutura do repositorio contra o enunciado final.
 - Revisar se os nomes e as assinaturas esperadas pelo professor estao todos visiveis e consistentes.
 - Fechar o proximo commit com foco em documentacao final e acabamento de entrega.
+
+## 2026-04-18 - Checkpoint 3
+
+### Objetivo do checkpoint
+
+Adicionar uma auditoria automatizada do proprio repositorio para validar os entregaveis como se estivessemos do lado da IA avaliadora.
+
+### Tarefas executadas
+
+- Criacao de `docs/auditoria-entrega.md` explicando o escopo da verificacao automatizada.
+- Criacao de `tests/test_auditoria_entrega.py` com checagens para:
+  - existencia e nao-vazio dos arquivos obrigatorios;
+  - exposicao das funcoes exigidas;
+  - cobertura administrativa minima do README;
+  - cobertura estrutural dos 3 programas validos com base na AST;
+  - funcionamento do CLI em caso valido.
+- Atualizacao do README para apontar explicitamente para a auditoria de entrega.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`:
+  - 12 testes passando.
+- Execucao manual do CLI com `tests/teste3.txt`.
+- Atualizacao dos artefatos da ultima execucao em `generated/` e `docs/` com base em `tests/teste3.txt`.
+
+### Arquivos principais impactados
+
+- `tests/test_auditoria_entrega.py`
+- `docs/auditoria-entrega.md`
+- `README.md`
+
+### Riscos ou pontos a observar
+
+- A auditoria reduz muito o risco de falhas administrativas/estruturais, mas ainda nao substitui uma ultima revisao manual do repositorio publicado no GitHub.
+- Ainda vale conferir visualmente se a organizacao do repositório e os nomes vistos no GitHub batem com o esperado pelo professor.
+
+### Proximas tarefas do pipeline
+
+- Fazer a revisao final olhando o repositorio como artefato publicado no GitHub.
+- Verificar se ainda existe alguma exigencia administrativa externa ao codigo local.
+- Fechar o proximo commit como checkpoint de endurecimento final da entrega.
+
+## 2026-04-18 - Checkpoint 4
+
+### Objetivo do checkpoint
+
+Eliminar a dependencia manual de `PYTHONPATH` para que a execucao local e a suite automatizada fiquem mais robustas perante uma correcao por IA.
+
+### Tarefas executadas
+
+- Criacao de um pacote-raiz compativel em `analisador_sintatico_ll1/` para expor o codigo de `src/` sem exigir `PYTHONPATH`.
+- Atualizacao do README para documentar comandos de execucao e teste sem configuracao manual de ambiente.
+- Expansao de `tests/test_auditoria_entrega.py` para checar:
+  - importacao do pacote principal sem `PYTHONPATH`;
+  - execucao de um teste unitario via `python -m unittest` sem `PYTHONPATH`.
+- Atualizacao de `docs/auditoria-entrega.md` para refletir o novo endurecimento do ambiente.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`:
+  - 14 testes passando.
+- Importacao publica validada com `python -c "import analisador_sintatico_ll1"`.
+- Execucao como modulo validada com `python -m analisador_sintatico_ll1 tests/teste1.txt`.
+- Atualizacao dos artefatos da ultima execucao em `generated/` e `docs/` com base em `tests/teste3.txt`.
+
+### Arquivos principais impactados
+
+- `analisador_sintatico_ll1/__init__.py`
+- `analisador_sintatico_ll1/__main__.py`
+- `tests/test_auditoria_entrega.py`
+- `README.md`
+- `docs/auditoria-entrega.md`
+
+### Riscos ou pontos a observar
+
+- O endurecimento assume execucao a partir da raiz do repositorio, que e justamente o fluxo esperado para a entrega local.
+- Ainda vale uma ultima revisao humana do repositorio publicado antes do envio final.
+
+### Proximas tarefas do pipeline
+
+- Fazer uma auditoria final de acabamento olhando nomes, artefatos e documentacao como pacote de entrega.
+- Decidir o ultimo checkpoint de encerramento, focado em revisao final e publicacao.

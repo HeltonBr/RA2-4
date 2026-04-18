@@ -3,76 +3,81 @@
 ```text
 Program
   Statement[1] line=2
-    MemoryWrite name=A
-      Number value=4
+    MemoryWrite name=M
+      Number value=8
   Statement[2] line=3
-    MemoryWrite name=B
-      Number value=2
+    MemoryWrite name=N
+      Number value=5
   Statement[3] line=4
-    MemoryWrite name=C
-      Number value=1.5
+    MemoryWrite name=R
+      Number value=2.25
   Statement[4] line=5
-    BinaryOp operator=+
-      MemoryRead name=A
-      MemoryRead name=B
+    BinaryOp operator=-
+      MemoryRead name=M
+      MemoryRead name=N
   Statement[5] line=6
-    MemoryWrite name=D
-      BinaryOp operator=+
-        MemoryRead name=A
-        MemoryRead name=B
+    BinaryOp operator=+
+      MemoryRead name=M
+      MemoryRead name=N
   Statement[6] line=7
-    BinaryOp operator=^
-      MemoryRead name=A
-      Number value=2
-  Statement[7] line=8
     BinaryOp operator=*
-      MemoryRead name=A
-      MemoryRead name=B
-  Statement[8] line=9
+      MemoryRead name=M
+      MemoryRead name=N
+  Statement[7] line=8
     BinaryOp operator=/
-      MemoryRead name=A
-      MemoryRead name=B
-  Statement[9] line=10
+      MemoryRead name=M
+      MemoryRead name=N
+  Statement[8] line=9
     BinaryOp operator=|
-      MemoryRead name=A
-      MemoryRead name=C
-  Statement[10] line=11
+      MemoryRead name=M
+      MemoryRead name=R
+  Statement[9] line=10
     BinaryOp operator=%
-      MemoryRead name=A
-      MemoryRead name=B
+      MemoryRead name=M
+      MemoryRead name=N
+  Statement[10] line=11
+    BinaryOp operator=^
+      MemoryRead name=N
+      Number value=3
   Statement[11] line=12
-    Sequence
-      IfElse
-        Condition
-          RelationalOp operator=<
-            MemoryRead name=A
-            MemoryRead name=B
-        Then
-          MemoryWrite name=A
-            BinaryOp operator=+
-              MemoryRead name=A
-              Number value=1
-        Else
-          MemoryWrite name=B
-            BinaryOp operator=+
-              MemoryRead name=B
-              Number value=1
-      MemoryWrite name=OUT
-        ResultRef offset=2
+    If
+      Condition
+        RelationalOp operator=!=
+          ResultRef offset=1
+          Number value=0
+      Then
+        IfElse
+          Condition
+            RelationalOp operator=>
+              MemoryRead name=M
+              MemoryRead name=N
+          Then
+            MemoryWrite name=M
+              BinaryOp operator=-
+                MemoryRead name=M
+                Number value=1
+          Else
+            MemoryWrite name=N
+              BinaryOp operator=-
+                MemoryRead name=N
+                Number value=1
   Statement[12] line=13
     Sequence
       While
         Condition
           RelationalOp operator=>
-            MemoryRead name=A
+            MemoryRead name=M
             Number value=0
         Body
-          MemoryWrite name=A
+          MemoryWrite name=M
             BinaryOp operator=-
-              MemoryRead name=A
+              MemoryRead name=M
               Number value=1
-      MemoryWrite name=OUT
-        BinaryOp operator=+
-          MemoryRead name=OUT
-          MemoryRead name=B
+      Sequence
+        MemoryWrite name=KEEP
+          ResultRef offset=1
+        MemoryWrite name=R
+          BinaryOp operator=+
+            MemoryRead name=R
+            Number value=1.0
 ```
