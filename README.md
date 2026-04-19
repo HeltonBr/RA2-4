@@ -15,11 +15,11 @@ Esta fase amplia a Fase 1 para construir um analisador sintatico LL(1), gerar a 
 
 ## Situacao atual
 
-- Nucleo do analisador implementado: leitura de tokens, gramatica LL(1), parser descendente recursivo, AST e geracao inicial de Assembly.
-- Tres arquivos de teste validos e dois cenarios invalidos ja foram adicionados em `tests/`.
+- Pipeline completo implementado: leitura de tokens, gramatica LL(1), parser descendente recursivo, AST e geracao de Assembly ARMv7.
+- Tres arquivos de teste validos, cenarios invalidos, auditoria automatizada e checklist final ja estao presentes no repositorio.
 - A linha do tempo das etapas concluida/testada fica em `docs/linha-do-tempo.md`.
 - Compatibilidade mantida com o formato serializado de tokens da Fase 1.
-- Ambiente local validado com Python 3.9.
+- Ambiente local validado com Python 3.9 a partir da raiz do repositorio.
 
 ## Estrutura do repositorio
 
@@ -101,7 +101,7 @@ Para manter a linguagem estritamente LL(1), a sintaxe canonica em documentacao e
 - Decisao com senao: `(<expr> <stmt> <stmt> IFELSE)`
 - Laco: `(<expr> <stmt> WHILE)`
 
-Observacao importante: o uso de memoria como operando sera documentado na forma canonica `(MEM)` para preservar a previsibilidade da gramatica LL(1). Compatibilidades adicionais com a Fase 1 poderao ser avaliadas depois, mas nao sao a base formal da gramatica.
+Observacao importante: o uso de memoria como operando e documentado na forma canonica `(MEM)` para preservar a previsibilidade da gramatica LL(1). Compatibilidades adicionais com a Fase 1 nao fazem parte da especificacao formal desta entrega.
 
 ## Documentacao e artefatos
 
@@ -127,8 +127,8 @@ Exemplo de estrutura valida da linguagem:
 (END)
 ```
 
-## Proximos marcos
+## Estado de entrega
 
-- Refinar mensagens de erro e recuperacao basica.
-- Revisar a documentacao final da entrega com os artefatos gerados.
-- Consolidar novos commits pequenos e rastreaveis ao longo das proximas etapas.
+- Implementacao, documentacao tecnica, testes e artefatos obrigatorios estao organizados no repositorio.
+- A validacao local pode ser refeita integralmente a partir da raiz com os comandos documentados neste README.
+- Fora do codigo, resta apenas a conferencia final do repositorio publicado antes do envio.

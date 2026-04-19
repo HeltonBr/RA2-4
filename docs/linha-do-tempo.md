@@ -223,3 +223,38 @@ Consolidar um checklist final de entrega para deixar o repositorio mais autoexpl
 ### Proximas tarefas do pipeline
 
 - Fazer o ultimo checkpoint de encerramento com revisao final do repositorio publicado e orientacao de envio.
+
+## 2026-04-19 - Checkpoint 6
+
+### Objetivo do checkpoint
+
+Alinhar README e plano ao estado real do projeto para evitar sinais de pendencia tecnica em uma avaliacao automatizada.
+
+### Tarefas executadas
+
+- Atualizacao de `README.md` para refletir o pipeline completo, o estado de entrega e a validacao local pela raiz do repositorio.
+- Atualizacao de `docs/plano-evolucao.md` para marcar o fechamento local da entrega como concluido.
+- Expansao de `tests/test_auditoria_entrega.py` para checar:
+  - presenca da secao `Estado de entrega` no README;
+  - indicacao de validacao local no README;
+  - status concluido para a Atualizacao 8 no plano.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Revisao textual do pacote de entrega para remover marcadores desatualizados de trabalho em andamento.
+
+### Arquivos principais impactados
+
+- `README.md`
+- `docs/plano-evolucao.md`
+- `tests/test_auditoria_entrega.py`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- O repositorio local ficou mais alinhado ao estado real da entrega, mas a conferencia final no GitHub publicado continua sendo recomendavel antes do envio.
+
+### Proximas tarefas do pipeline
+
+- Fazer o checkpoint final de encerramento, com revisao manual do repositorio publicado e orientacao objetiva de envio.

@@ -67,6 +67,14 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("python analisadorsintatico.py", readme)
         self.assertIn("cpulator", readme)
         self.assertIn("checklist-entrega.md", readme)
+        self.assertIn("estado de entrega", readme)
+        self.assertIn("validacao local", readme)
+
+    def test_plano_indica_fechamento_local_concluido(self) -> None:
+        plano = (ROOT / "docs" / "plano-evolucao.md").read_text(encoding="utf-8").lower()
+
+        self.assertIn("## atualizacao 8 - fechamento para entrega", plano)
+        self.assertIn("status: concluida", plano)
 
     def test_checklist_final_mapeia_entregaveis_minimos(self) -> None:
         checklist = (ROOT / "docs" / "checklist-entrega.md").read_text(encoding="utf-8").lower()

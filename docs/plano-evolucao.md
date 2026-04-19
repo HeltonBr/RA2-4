@@ -66,7 +66,7 @@ Status: concluida
 
 ## Atualizacao 8 - Fechamento para entrega
 
-Status: em andamento
+Status: concluida
 
 - Produzir README final.
 - Gerar markdown tecnico com gramatica, FIRST/FOLLOW, tabela e arvore.
