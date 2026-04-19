@@ -109,6 +109,7 @@ Observacao importante: o uso de memoria como operando sera documentado na forma 
 - Planejamento incremental: `docs/plano-evolucao.md`
 - Linha do tempo das tarefas: `docs/linha-do-tempo.md`
 - Auditoria automatizada da entrega: `docs/auditoria-entrega.md`
+- Checklist final de entrega: `docs/checklist-entrega.md`
 - Sintaxe de controle: `docs/sintaxe_controle.md`
 - Gramatica, FIRST/FOLLOW e tabela LL(1): gerados em `docs/`
 - Ultima arvore sintatica em markdown: `docs/arvore_ultima_execucao.md`

@@ -187,3 +187,39 @@ Eliminar a dependencia manual de `PYTHONPATH` para que a execucao local e a suit
 
 - Fazer uma auditoria final de acabamento olhando nomes, artefatos e documentacao como pacote de entrega.
 - Decidir o ultimo checkpoint de encerramento, focado em revisao final e publicacao.
+
+## 2026-04-19 - Checkpoint 5
+
+### Objetivo do checkpoint
+
+Consolidar um checklist final de entrega para deixar o repositorio mais autoexplicativo e facilitar uma revisao final humana ou automatizada.
+
+### Tarefas executadas
+
+- Criacao de `docs/checklist-entrega.md` com o mapeamento entre exigencias, arquivos e comandos de validacao.
+- Atualizacao do README para apontar explicitamente para o checklist final.
+- Atualizacao de `docs/plano-evolucao.md` para registrar o checklist como parte do fechamento.
+- Expansao de `tests/test_auditoria_entrega.py` para verificar:
+  - existencia do checklist final;
+  - presenca do checklist no README;
+  - cobertura minima do checklist sobre funcoes, docs, artefatos e comandos.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Revisao do pacote de entrega a partir da raiz do repositorio, sem alterar o nucleo do analisador.
+
+### Arquivos principais impactados
+
+- `docs/checklist-entrega.md`
+- `README.md`
+- `docs/plano-evolucao.md`
+- `tests/test_auditoria_entrega.py`
+
+### Riscos ou pontos a observar
+
+- O checklist melhora a rastreabilidade da entrega, mas ainda depende de os arquivos publicados no GitHub refletirem exatamente o estado local.
+
+### Proximas tarefas do pipeline
+
+- Fazer o ultimo checkpoint de encerramento com revisao final do repositorio publicado e orientacao de envio.

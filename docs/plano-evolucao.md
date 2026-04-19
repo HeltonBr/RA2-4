@@ -72,6 +72,7 @@ Status: em andamento
 - Gerar markdown tecnico com gramatica, FIRST/FOLLOW, tabela e arvore.
 - Criar e revisar os 3 arquivos de teste completos.
 - Organizar a ultima execucao e o historico de commits.
+- Consolidar auditoria automatizada e checklist final de entrega.
 
 ## Estrategia de commits
 

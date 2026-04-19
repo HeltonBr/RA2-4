@@ -35,6 +35,7 @@ ARQUIVOS_OBRIGATORIOS = [
     ROOT / "docs" / "tabela_ll1.md",
     ROOT / "docs" / "arvore_ultima_execucao.md",
     ROOT / "docs" / "auditoria-entrega.md",
+    ROOT / "docs" / "checklist-entrega.md",
     ROOT / "generated" / "tokens_ultima_execucao.txt",
     ROOT / "generated" / "arvore_ultima_execucao.json",
     ROOT / "generated" / "ultimo_assembly.s",
@@ -65,6 +66,25 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("ra2-4", readme)
         self.assertIn("python analisadorsintatico.py", readme)
         self.assertIn("cpulator", readme)
+        self.assertIn("checklist-entrega.md", readme)
+
+    def test_checklist_final_mapeia_entregaveis_minimos(self) -> None:
+        checklist = (ROOT / "docs" / "checklist-entrega.md").read_text(encoding="utf-8").lower()
+
+        self.assertIn("ra2-4", checklist)
+        self.assertIn("analisadorsintatico.py", checklist)
+        self.assertIn("lertokens", checklist)
+        self.assertIn("construirgramatica", checklist)
+        self.assertIn("parsear", checklist)
+        self.assertIn("gerararvore", checklist)
+        self.assertIn("gerarassembly", checklist)
+        self.assertIn("docs/gramatica.md", checklist)
+        self.assertIn("docs/first_follow.md", checklist)
+        self.assertIn("docs/tabela_ll1.md", checklist)
+        self.assertIn("docs/arvore_ultima_execucao.md", checklist)
+        self.assertIn("generated/ultimo_assembly.s", checklist)
+        self.assertIn("python analisadorsintatico.py tests/teste1.txt", checklist)
+        self.assertIn('python -m unittest discover -s tests -p "test_*.py" -v', checklist)
 
     def test_cada_programa_valido_cobre_os_requisitos_minimos(self) -> None:
         for caminho in PROGRAMAS_VALIDOS:
