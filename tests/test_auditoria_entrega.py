@@ -125,7 +125,7 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("githubmirror", script)
         self.assertIn("24/04/2026 23:59", script)
         self.assertIn("robocopy", script)
-        self.assertIn("git clone", script)
+        self.assertIn("historico git", script)
 
     def test_cada_programa_valido_cobre_os_requisitos_minimos(self) -> None:
         for caminho in PROGRAMAS_VALIDOS:

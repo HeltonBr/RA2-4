@@ -335,3 +335,36 @@ Preparar a transicao entre entrega e defesa, com uma pasta espelho de treino e u
 ### Proximas tarefas do pipeline
 
 - Criar ou atualizar `Githubmirror` e usar somente essa pasta para treino da defesa apos o prazo.
+
+## 2026-04-19 - Checkpoint 9
+
+### Objetivo do checkpoint
+
+Corrigir o espelho para que `Githubmirror` represente uma copia fiel da pasta oficial, incluindo o historico Git.
+
+### Tarefas executadas
+
+- Ajuste de `sincronizar_para_githubmirror.ps1` para copiar tambem `.git`, eliminando divergencias artificiais no espelho.
+- Atualizacao do README para deixar explicito que `Githubmirror` preserva o historico Git da pasta oficial.
+- Ajuste da auditoria para refletir o comportamento final do script de espelho.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Sincronizacao reexecutada para confirmar que `Githubmirror` fica limpo apos a copia.
+
+### Arquivos principais impactados
+
+- `sincronizar_para_githubmirror.ps1`
+- `README.md`
+- `tests/test_auditoria_entrega.py`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- O espelho deve continuar sendo sincronizado apenas ate o prazo.
+- Apos o congelamento, `Githubmirror` segue sozinho e a pasta oficial nao pode ser alterada.
+
+### Proximas tarefas do pipeline
+
+- Usar `Githubmirror` para ensaios de defesa e manter `Github` congelada apos o prazo.

@@ -15,10 +15,6 @@ if ((Get-Date) -gt $prazoCongelamento) {
     throw "Sincronizacao bloqueada: apos 24/04/2026 23:59 a pasta oficial deve permanecer congelada. Trabalhe apenas em Githubmirror."
 }
 
-if (-not (Test-Path $destino)) {
-    git clone --no-hardlinks --local "$origem" "$destino" | Out-Host
-}
-
 $robocopyArgs = @(
     $origem,
     $destino,
@@ -26,7 +22,6 @@ $robocopyArgs = @(
     "/FFT",
     "/R:2",
     "/W:1",
-    "/XD", ".git",
     "/XD", "__pycache__",
     "/XD", ".pytest_cache",
     "/XD", ".mypy_cache",
@@ -47,4 +42,5 @@ Write-Host "Espelho sincronizado com sucesso:"
 Write-Host "Origem : $origem"
 Write-Host "Destino: $destino"
 Write-Host ""
+Write-Host "A sincronizacao copia tambem o historico Git da pasta oficial, para manter Githubmirror como espelho fiel."
 Write-Host "Apos 24/04/2026 23:59, pare de sincronizar e use apenas Githubmirror para treino e demonstracao."

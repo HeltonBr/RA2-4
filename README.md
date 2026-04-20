@@ -126,6 +126,7 @@ Para manter uma copia separada da pasta oficial antes do prazo:
 ```
 
 Esse comando cria ou atualiza a pasta irma `Githubmirror`. A ideia e usar `Github` como pasta oficial ate o prazo e, depois do congelamento, continuar treinando e demonstrando apenas em `Githubmirror`.
+O espelho copia tambem o historico Git da pasta oficial, para manter `Githubmirror` como copia fiel no momento da sincronizacao.
 
 ## Exemplo rapido
 
