@@ -69,8 +69,10 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("cpulator", readme)
         self.assertIn("checklist-entrega.md", readme)
         self.assertIn("roteiro-envio.md", readme)
+        self.assertIn("roteiro-defesa.md", readme)
         self.assertIn("estado de entrega", readme)
         self.assertIn("validacao local", readme)
+        self.assertIn("githubmirror", readme)
 
     def test_plano_indica_fechamento_local_concluido(self) -> None:
         plano = (ROOT / "docs" / "plano-evolucao.md").read_text(encoding="utf-8").lower()
@@ -104,6 +106,26 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("america/sao_paulo", roteiro)
         self.assertIn("fica proibido", roteiro)
         self.assertIn("criar novos commits", roteiro)
+
+    def test_roteiro_defesa_cobre_fluxo_da_apresentacao(self) -> None:
+        roteiro = (ROOT / "docs" / "roteiro-defesa.md").read_text(encoding="utf-8").lower()
+
+        self.assertIn("29/04/2026", roteiro)
+        self.assertIn("30/04/2026", roteiro)
+        self.assertIn("githubmirror", roteiro)
+        self.assertIn("tests/teste3.txt", roteiro)
+        self.assertIn("lexico_minusculo.txt", roteiro)
+        self.assertIn("sintaxe_sem_end.txt", roteiro)
+        self.assertIn("cpulator", roteiro)
+        self.assertIn("generated/ultimo_assembly.s", roteiro)
+
+    def test_script_de_espelho_existe_e_documenta_corte(self) -> None:
+        script = (ROOT / "sincronizar_para_githubmirror.ps1").read_text(encoding="utf-8").lower()
+
+        self.assertIn("githubmirror", script)
+        self.assertIn("24/04/2026 23:59", script)
+        self.assertIn("robocopy", script)
+        self.assertIn("git clone", script)
 
     def test_cada_programa_valido_cobre_os_requisitos_minimos(self) -> None:
         for caminho in PROGRAMAS_VALIDOS:

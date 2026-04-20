@@ -297,3 +297,41 @@ Documentar explicitamente o roteiro de envio e o congelamento da entrega apos o 
 ### Proximas tarefas do pipeline
 
 - Fazer apenas a revisao final do repositorio publicado antes do prazo e encerrar as alteracoes locais.
+
+## 2026-04-19 - Checkpoint 8
+
+### Objetivo do checkpoint
+
+Preparar a transicao entre entrega e defesa, com uma pasta espelho de treino e um roteiro claro de apresentacao.
+
+### Tarefas executadas
+
+- Criacao de `docs/roteiro-defesa.md` com a sequencia sugerida da apresentacao.
+- Criacao de `sincronizar_para_githubmirror.ps1` para criar e atualizar a pasta irma `Githubmirror` ate o prazo.
+- Atualizacao do README para documentar o roteiro de defesa e o uso do espelho.
+- Expansao de `tests/test_auditoria_entrega.py` para verificar:
+  - presenca do roteiro de defesa;
+  - referencia a `Githubmirror`;
+  - existencia do script de espelho com o corte em `24/04/2026 23:59`.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Validacao do planejamento de defesa sem alterar o nucleo do analisador.
+
+### Arquivos principais impactados
+
+- `docs/roteiro-defesa.md`
+- `sincronizar_para_githubmirror.ps1`
+- `README.md`
+- `tests/test_auditoria_entrega.py`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- Ate o prazo, o espelho pode ser atualizado a partir da pasta oficial.
+- Apos `24/04/2026 23:59`, o espelho deve seguir sozinho e a pasta oficial nao pode mais ser alterada.
+
+### Proximas tarefas do pipeline
+
+- Criar ou atualizar `Githubmirror` e usar somente essa pasta para treino da defesa apos o prazo.

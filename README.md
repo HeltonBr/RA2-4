@@ -111,10 +111,21 @@ Observacao importante: o uso de memoria como operando e documentado na forma can
 - Auditoria automatizada da entrega: `docs/auditoria-entrega.md`
 - Checklist final de entrega: `docs/checklist-entrega.md`
 - Roteiro de envio e congelamento: `docs/roteiro-envio.md`
+- Roteiro de defesa: `docs/roteiro-defesa.md`
 - Sintaxe de controle: `docs/sintaxe_controle.md`
 - Gramatica, FIRST/FOLLOW e tabela LL(1): gerados em `docs/`
 - Ultima arvore sintatica em markdown: `docs/arvore_ultima_execucao.md`
 - Ultimos artefatos persistidos: `generated/`
+
+## Espelho de defesa
+
+Para manter uma copia separada da pasta oficial antes do prazo:
+
+```powershell
+.\sincronizar_para_githubmirror.ps1
+```
+
+Esse comando cria ou atualiza a pasta irma `Githubmirror`. A ideia e usar `Github` como pasta oficial ate o prazo e, depois do congelamento, continuar treinando e demonstrando apenas em `Githubmirror`.
 
 ## Exemplo rapido
 
