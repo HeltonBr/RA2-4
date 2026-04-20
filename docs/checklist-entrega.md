@@ -25,6 +25,7 @@ Este arquivo consolida o fechamento da Fase 2 como pacote de entrega e ajuda a r
 - Arvore da ultima execucao em markdown: `docs/arvore_ultima_execucao.md`
 - Linha do tempo dos checkpoints: `docs/linha-do-tempo.md`
 - Auditoria automatizada local: `docs/auditoria-entrega.md`
+- Roteiro de envio e congelamento: `docs/roteiro-envio.md`
 
 ## Artefatos persistidos
 
@@ -56,3 +57,4 @@ Este arquivo consolida o fechamento da Fase 2 como pacote de entrega e ajuda a r
 - Confirmar que os arquivos em `generated/` correspondem a uma execucao valida recente.
 - Confirmar que `docs/` contem os markdowns tecnicos exigidos.
 - Confirmar que a suite automatizada continua verde a partir da raiz do repositorio.
+- Interromper qualquer alteracao local apos `24/04/2026 23:59` no fuso `America/Sao_Paulo`.

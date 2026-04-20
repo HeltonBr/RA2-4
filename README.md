@@ -110,6 +110,7 @@ Observacao importante: o uso de memoria como operando e documentado na forma can
 - Linha do tempo das tarefas: `docs/linha-do-tempo.md`
 - Auditoria automatizada da entrega: `docs/auditoria-entrega.md`
 - Checklist final de entrega: `docs/checklist-entrega.md`
+- Roteiro de envio e congelamento: `docs/roteiro-envio.md`
 - Sintaxe de controle: `docs/sintaxe_controle.md`
 - Gramatica, FIRST/FOLLOW e tabela LL(1): gerados em `docs/`
 - Ultima arvore sintatica em markdown: `docs/arvore_ultima_execucao.md`
@@ -131,4 +132,4 @@ Exemplo de estrutura valida da linguagem:
 
 - Implementacao, documentacao tecnica, testes e artefatos obrigatorios estao organizados no repositorio.
 - A validacao local pode ser refeita integralmente a partir da raiz com os comandos documentados neste README.
-- Fora do codigo, resta apenas a conferencia final do repositorio publicado antes do envio.
+- Fora do codigo, resta apenas a conferencia final do repositorio publicado antes do envio e o respeito ao congelamento apos o prazo.

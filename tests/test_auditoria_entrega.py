@@ -36,6 +36,7 @@ ARQUIVOS_OBRIGATORIOS = [
     ROOT / "docs" / "arvore_ultima_execucao.md",
     ROOT / "docs" / "auditoria-entrega.md",
     ROOT / "docs" / "checklist-entrega.md",
+    ROOT / "docs" / "roteiro-envio.md",
     ROOT / "generated" / "tokens_ultima_execucao.txt",
     ROOT / "generated" / "arvore_ultima_execucao.json",
     ROOT / "generated" / "ultimo_assembly.s",
@@ -67,6 +68,7 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("python analisadorsintatico.py", readme)
         self.assertIn("cpulator", readme)
         self.assertIn("checklist-entrega.md", readme)
+        self.assertIn("roteiro-envio.md", readme)
         self.assertIn("estado de entrega", readme)
         self.assertIn("validacao local", readme)
 
@@ -93,6 +95,15 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("generated/ultimo_assembly.s", checklist)
         self.assertIn("python analisadorsintatico.py tests/teste1.txt", checklist)
         self.assertIn('python -m unittest discover -s tests -p "test_*.py" -v', checklist)
+
+    def test_roteiro_envio_define_congelamento_pos_prazo(self) -> None:
+        roteiro = (ROOT / "docs" / "roteiro-envio.md").read_text(encoding="utf-8").lower()
+
+        self.assertIn("24/04/2026", roteiro)
+        self.assertIn("23:59", roteiro)
+        self.assertIn("america/sao_paulo", roteiro)
+        self.assertIn("fica proibido", roteiro)
+        self.assertIn("criar novos commits", roteiro)
 
     def test_cada_programa_valido_cobre_os_requisitos_minimos(self) -> None:
         for caminho in PROGRAMAS_VALIDOS:

@@ -258,3 +258,42 @@ Alinhar README e plano ao estado real do projeto para evitar sinais de pendencia
 ### Proximas tarefas do pipeline
 
 - Fazer o checkpoint final de encerramento, com revisao manual do repositorio publicado e orientacao objetiva de envio.
+
+## 2026-04-19 - Checkpoint 7
+
+### Objetivo do checkpoint
+
+Documentar explicitamente o roteiro de envio e o congelamento da entrega apos o prazo final, reduzindo risco operacional na reta final.
+
+### Tarefas executadas
+
+- Criacao de `docs/roteiro-envio.md` com:
+  - prazo de congelamento;
+  - passos objetivos de validacao antes do envio;
+  - restricoes claras apos o prazo.
+- Atualizacao de `README.md` e `docs/checklist-entrega.md` para apontar explicitamente para o roteiro.
+- Expansao de `tests/test_auditoria_entrega.py` para verificar:
+  - existencia do roteiro de envio;
+  - referencia ao roteiro no README;
+  - presenca da regra de congelamento com data, hora e fuso.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Revisao do fluxo final de envio e congelamento sem alterar o nucleo do analisador.
+
+### Arquivos principais impactados
+
+- `docs/roteiro-envio.md`
+- `README.md`
+- `docs/checklist-entrega.md`
+- `tests/test_auditoria_entrega.py`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- O congelamento precisa ser respeitado manualmente a partir de `24/04/2026 23:59`, mesmo que ainda existam ideias de melhoria.
+
+### Proximas tarefas do pipeline
+
+- Fazer apenas a revisao final do repositorio publicado antes do prazo e encerrar as alteracoes locais.
