@@ -112,6 +112,7 @@ Observacao importante: o uso de memoria como operando e documentado na forma can
 - Checklist final de entrega: `docs/checklist-entrega.md`
 - Roteiro de envio e congelamento: `docs/roteiro-envio.md`
 - Roteiro de defesa: `docs/roteiro-defesa.md`
+- Kit de demonstracao da defesa: `defesa/`
 - Sintaxe de controle: `docs/sintaxe_controle.md`
 - Gramatica, FIRST/FOLLOW e tabela LL(1): gerados em `docs/`
 - Ultima arvore sintatica em markdown: `docs/arvore_ultima_execucao.md`

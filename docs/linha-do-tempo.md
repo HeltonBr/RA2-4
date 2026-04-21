@@ -368,3 +368,46 @@ Corrigir o espelho para que `Githubmirror` represente uma copia fiel da pasta of
 ### Proximas tarefas do pipeline
 
 - Usar `Githubmirror` para ensaios de defesa e manter `Github` congelada apos o prazo.
+
+## 2026-04-20 - Checkpoint 10
+
+### Objetivo do checkpoint
+
+Preparar um kit de demonstracao reutilizavel para a defesa, sem depender de improviso na hora da apresentacao.
+
+### Tarefas executadas
+
+- Criacao da pasta `defesa/` com:
+  - um caso valido base;
+  - um caso valido alternativo;
+  - um erro lexico;
+  - um erro sintatico;
+  - um README curto do kit.
+- Criacao de `tests/test_kit_defesa.py` para validar automaticamente os cenarios do kit.
+- Atualizacao de `docs/roteiro-defesa.md` para apontar para os arquivos do kit.
+- Atualizacao do README para registrar a existencia da pasta `defesa/`.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Reexecucao do caso canonico com `tests/teste3.txt` ao final da validacao, para manter os artefatos oficiais coerentes.
+
+### Arquivos principais impactados
+
+- `defesa/README.md`
+- `defesa/demo_valido_base.txt`
+- `defesa/demo_valido_alterado.txt`
+- `defesa/demo_erro_lexico.txt`
+- `defesa/demo_erro_sintatico.txt`
+- `tests/test_kit_defesa.py`
+- `docs/roteiro-defesa.md`
+- `README.md`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- O kit facilita a defesa, mas os ensaios apos o prazo devem ocorrer somente em `Githubmirror`.
+
+### Proximas tarefas do pipeline
+
+- Sincronizar `Githubmirror` com o kit de demonstracao e passar a treinar com esses arquivos.

@@ -23,10 +23,10 @@ Demonstrar que a solucao:
 1. Trabalhar apenas na pasta `Githubmirror`.
 2. Abrir um terminal na raiz de `Githubmirror`.
 3. Deixar prontos estes arquivos:
-   - `tests/teste1.txt`
-   - `tests/teste3.txt`
-   - `tests/invalidos/lexico_minusculo.txt`
-   - `tests/invalidos/sintaxe_sem_end.txt`
+   - `defesa/demo_valido_base.txt`
+   - `defesa/demo_valido_alterado.txt`
+   - `defesa/demo_erro_lexico.txt`
+   - `defesa/demo_erro_sintatico.txt`
 4. Deixar aberto o arquivo `generated/ultimo_assembly.s`.
 5. Se for usar simulador, deixar o CPULATOR pronto.
 
@@ -48,6 +48,12 @@ Comando sugerido:
 python AnalisadorSintatico.py tests/teste3.txt
 ```
 
+Ou, se preferir usar o kit de demonstracao preparado:
+
+```powershell
+python AnalisadorSintatico.py defesa/demo_valido_base.txt
+```
+
 Pontos para mostrar:
 
 - a execucao termina sem erro;
@@ -67,7 +73,7 @@ Pontos para mostrar:
 
 ### 4. Mostrar alteracao de resultado
 
-Durante a defesa, editar uma copia de `tests/teste3.txt` dentro de `Githubmirror`.
+Durante a defesa, editar uma copia de `defesa/demo_valido_alterado.txt` dentro de `Githubmirror`.
 
 Sugestoes de alteracao:
 
@@ -78,7 +84,7 @@ Sugestoes de alteracao:
 Depois, rodar novamente:
 
 ```powershell
-python AnalisadorSintatico.py tests/teste3.txt
+python AnalisadorSintatico.py defesa/demo_valido_alterado.txt
 ```
 
 O objetivo e mostrar que:
@@ -95,10 +101,22 @@ Opcao de erro lexico:
 python AnalisadorSintatico.py tests/invalidos/lexico_minusculo.txt
 ```
 
+Ou com o kit preparado:
+
+```powershell
+python AnalisadorSintatico.py defesa/demo_erro_lexico.txt
+```
+
 Opcao de erro sintatico:
 
 ```powershell
 python AnalisadorSintatico.py tests/invalidos/sintaxe_sem_end.txt
+```
+
+Ou com o kit preparado:
+
+```powershell
+python AnalisadorSintatico.py defesa/demo_erro_sintatico.txt
 ```
 
 O que destacar:
@@ -134,10 +152,11 @@ Se houver tempo:
 
 ## Arquivos mais recomendados por papel
 
-- `tests/teste1.txt`: demonstracao valida mais simples.
-- `tests/teste3.txt`: demonstracao valida mais rica para AST e Assembly.
-- `tests/invalidos/lexico_minusculo.txt`: erro lexico.
-- `tests/invalidos/sintaxe_sem_end.txt`: erro sintatico.
+- `defesa/demo_valido_base.txt`: demonstracao valida pronta.
+- `defesa/demo_valido_alterado.txt`: demonstracao valida com resultado diferente.
+- `defesa/demo_erro_lexico.txt`: erro lexico.
+- `defesa/demo_erro_sintatico.txt`: erro sintatico.
+- `tests/teste3.txt`: referencia valida mais rica, se quiser mostrar a origem do kit.
 
 ## Fechamento da fala
 
