@@ -73,6 +73,8 @@ class Fase2PipelineTests(unittest.TestCase):
                 self.assertIn("Program", arvore["tree_text"])
                 self.assertIn("_start:", assembly)
                 self.assertIn("puts_jtag", assembly)
+                self.assertIn("    mov r2, r0", assembly)
+                self.assertIn("    ldrb r1, [r2], #1", assembly)
 
     def test_parser_detecta_erro_lexico(self) -> None:
         caminho = ROOT / "tests" / "invalidos" / "lexico_minusculo.txt"

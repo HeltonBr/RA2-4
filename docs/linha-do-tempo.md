@@ -411,3 +411,42 @@ Preparar um kit de demonstracao reutilizavel para a defesa, sem depender de impr
 ### Proximas tarefas do pipeline
 
 - Sincronizar `Githubmirror` com o kit de demonstracao e passar a treinar com esses arquivos.
+
+## 2026-04-21 - Checkpoint 11
+
+### Objetivo do checkpoint
+
+Corrigir a rotina de impressao do runtime ARMv7 para que a saida no CPulator JTAG UART fique legivel durante a defesa.
+
+### Tarefas executadas
+
+- Diagnostico do comportamento observado no CPulator durante a execucao de `generated/ultimo_assembly.s`.
+- Identificacao do defeito em `puts_jtag`, que perdia o ponteiro da string apos transmitir o primeiro caractere.
+- Correcao do runtime em `src/analisador_sintatico_ll1/codegen_arm.py`, preservando o ponteiro em `r2`.
+- Expansao de `tests/test_fase2_pipeline.py` com uma regressao simples para garantir que o Assembly gerado usa a versao corrigida da rotina.
+- Regeneracao do `generated/ultimo_assembly.s` oficial a partir de `tests/teste3.txt`.
+- Sincronizacao da pasta `Githubmirror` para repetir o teste no CPulator com a versao corrigida.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite automatizada completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`:
+  - 23 testes passando.
+- Reexecucao do pipeline com `python AnalisadorSintatico.py tests/teste3.txt`.
+- Conferencia direta do trecho corrigido no `generated/ultimo_assembly.s`.
+
+### Arquivos principais impactados
+
+- `src/analisador_sintatico_ll1/codegen_arm.py`
+- `tests/test_fase2_pipeline.py`
+- `generated/ultimo_assembly.s`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- O programa ainda termina em `program_end:` com laço final proposital, o que no CPulator parece travamento se a demostracao nao for explicada.
+- A saida a ser observada continua sendo a janela `JTAG UART`, nao o painel `Messages`.
+
+### Proximas tarefas do pipeline
+
+- Repetir o teste do `ultimo_assembly.s` no CPulator com a pasta `Githubmirror`.
+- Validar visualmente a saida legivel no `JTAG UART` e consolidar o roteiro de fala da defesa ARMv7.
