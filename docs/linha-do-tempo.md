@@ -450,3 +450,62 @@ Corrigir a rotina de impressao do runtime ARMv7 para que a saida no CPulator JTA
 
 - Repetir o teste do `ultimo_assembly.s` no CPulator com a pasta `Githubmirror`.
 - Validar visualmente a saida legivel no `JTAG UART` e consolidar o roteiro de fala da defesa ARMv7.
+
+## 2026-04-24 - Checkpoint 12
+
+### Objetivo do checkpoint
+
+Executar a auditoria final do ultimo dia antes do congelamento, usando os relatorios antigos de avaliacao por IA como referencia e ampliando a cobertura de testes de formato.
+
+### Tarefas executadas
+
+- Leitura dos relatorios antigos de RA2, RA3 e RA4 para identificar o padrao da avaliacao automatizada.
+- Criacao de `docs/auditoria-avaliador-ia.md` registrando os pontos que a IA costuma verificar:
+  - README;
+  - funcoes com nomes exatos;
+  - FIRST/FOLLOW;
+  - tabela LL(1);
+  - artefatos gerados;
+  - testes completos;
+  - execucao via CLI;
+  - Assembly no simulador.
+- Criacao de `tests/variacoes/espacos_tabs_linhas.txt` para validar espacos extras, tabs, comentarios e linhas em branco.
+- Criacao de `tests/variacoes/seq_linha_longa.txt` para validar varias operacoes encadeadas por `SEQ` em uma mesma declaracao.
+- Criacao de casos invalidos adicionais para:
+  - numero malformado;
+  - expressao vazia;
+  - duas declaracoes completas no mesmo nivel e na mesma linha.
+- Criacao de `tests/test_variacoes_formato.py` para automatizar esses cenarios.
+- Atualizacao do README, checklist e auditoria automatizada para registrar os reforcos finais.
+
+### Validacoes realizadas neste checkpoint
+
+- Suite de variacoes executada com `python -m unittest tests.test_variacoes_formato -v`.
+- Suite completa executada com `python -m unittest discover -s tests -p "test_*.py" -v`:
+  - 30 testes passando.
+- Reexecucao de `python AnalisadorSintatico.py tests\teste3.txt` para manter os artefatos finais alinhados ao caso canonico.
+
+### Arquivos principais impactados
+
+- `docs/auditoria-avaliador-ia.md`
+- `tests/variacoes/espacos_tabs_linhas.txt`
+- `tests/variacoes/seq_linha_longa.txt`
+- `tests/invalidos/lexico_numero_malformado.txt`
+- `tests/invalidos/sintaxe_expressao_vazia.txt`
+- `tests/invalidos/sintaxe_multiplas_declaracoes_mesma_linha.txt`
+- `tests/test_variacoes_formato.py`
+- `README.md`
+- `docs/auditoria-entrega.md`
+- `docs/checklist-entrega.md`
+- `tests/test_auditoria_entrega.py`
+- `docs/linha-do-tempo.md`
+
+### Riscos ou pontos a observar
+
+- O contrato mantem uma declaracao de topo por linha, conforme o enunciado orienta. Varias operacoes em uma mesma linha devem ser representadas por `SEQ`.
+- Apos `24/04/2026 23:59` no fuso `America/Sao_Paulo`, a pasta oficial `Github` deve permanecer congelada.
+
+### Proximas tarefas do pipeline
+
+- Fazer somente conferencia final e envio antes do congelamento.
+- Depois do prazo, usar apenas `Githubmirror` para treino de defesa e simulacoes.

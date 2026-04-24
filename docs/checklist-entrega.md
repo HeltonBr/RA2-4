@@ -36,10 +36,12 @@ Este arquivo consolida o fechamento da Fase 2 como pacote de entrega e ajuda a r
 ## Arquivos de teste
 
 - Programas validos: `tests/teste1.txt`, `tests/teste2.txt`, `tests/teste3.txt`
+- Programas de variacao: `tests/variacoes/`
 - Casos invalidos: `tests/invalidos/`
 - Suite automatizada principal:
   - `tests/test_fase2_pipeline.py`
   - `tests/test_auditoria_entrega.py`
+  - `tests/test_variacoes_formato.py`
 
 ## Comandos de validacao
 

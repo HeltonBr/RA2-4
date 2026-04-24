@@ -31,6 +31,17 @@ Este arquivo resume as checagens automatizadas adicionadas para aproximar a vali
   - pelo menos um laço;
   - literais inteiros e reais.
 - Funcionamento do CLI em caso valido e retorno limpo em casos de erro.
+- Existencia de testes de variacao em `tests/variacoes/`, cobrindo:
+  - espacos extras;
+  - tabs;
+  - linhas em branco;
+  - comentarios;
+  - `SEQ` com varias operacoes na mesma declaracao.
+- Casos invalidos adicionais:
+  - numero malformado;
+  - expressao vazia;
+  - duas declaracoes completas no mesmo nivel e na mesma linha.
+- Registro do padrao observado nas avaliacoes antigas por IA em `docs/auditoria-avaliador-ia.md`.
 
 ## Suite responsavel
 
@@ -38,6 +49,7 @@ As checagens ficam principalmente em:
 
 - `tests/test_fase2_pipeline.py`
 - `tests/test_auditoria_entrega.py`
+- `tests/test_variacoes_formato.py`
 
 ## Comando de execucao
 

@@ -17,6 +17,7 @@ Esta fase amplia a Fase 1 para construir um analisador sintatico LL(1), gerar a 
 
 - Pipeline completo implementado: leitura de tokens, gramatica LL(1), parser descendente recursivo, AST e geracao de Assembly ARMv7.
 - Tres arquivos de teste validos, cenarios invalidos, auditoria automatizada e checklist final ja estao presentes no repositorio.
+- Testes adicionais de variacao de formato cobrem espacos extras, tabs, linhas em branco, comentarios e estruturas `SEQ` longas em uma mesma linha.
 - A linha do tempo das etapas concluida/testada fica em `docs/linha-do-tempo.md`.
 - Compatibilidade mantida com o formato serializado de tokens da Fase 1.
 - Ambiente local validado com Python 3.9 a partir da raiz do repositorio.
@@ -62,6 +63,8 @@ python -m unittest discover -s tests -p "test_*.py" -v
 ```
 
 Observacao: o repositorio inclui um pacote-raiz compativel em `analisador_sintatico_ll1/`, entao os comandos acima funcionam no diretorio raiz sem precisar configurar `PYTHONPATH` manualmente.
+
+Os arquivos em `tests/variacoes/` reforcam a validacao de generalizacao do parser. Eles incluem espacos extras, tabs, linhas em branco, comentarios e operacoes encadeadas por `SEQ` em uma mesma declaracao.
 
 ## Depuracao e validacao
 
@@ -109,6 +112,7 @@ Observacao importante: o uso de memoria como operando e documentado na forma can
 - Planejamento incremental: `docs/plano-evolucao.md`
 - Linha do tempo das tarefas: `docs/linha-do-tempo.md`
 - Auditoria automatizada da entrega: `docs/auditoria-entrega.md`
+- Auditoria do padrao de avaliacao por IA: `docs/auditoria-avaliador-ia.md`
 - Checklist final de entrega: `docs/checklist-entrega.md`
 - Roteiro de envio e congelamento: `docs/roteiro-envio.md`
 - Roteiro de defesa: `docs/roteiro-defesa.md`

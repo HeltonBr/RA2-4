@@ -1,0 +1,18 @@
+# Arquivo valido para testar espacos extras, tabs, linhas em branco e comentarios.
+
+   ( START )
+
+	(  12   A  )
+(	3	B	)
+ (   2.5   R   )
+( ( A )    ( B ) + )
+( ( A )    ( B ) - )
+( ( A )  ( B ) * )
+( ( A ) ( B ) / )
+( ( A ) ( R ) | )
+( ( A ) ( B ) % )
+( ( B ) 3 ^ )
+( ( ( 1 RES ) 0 > ) ( ( ( A ) 1 - ) A ) IF )
+( ( ( ( A ) 0 > ) ( ( ( A ) 1 - ) A ) WHILE ) ( ( ( R ) 1.0 + ) R ) SEQ )
+
+ ( END )

@@ -35,6 +35,7 @@ ARQUIVOS_OBRIGATORIOS = [
     ROOT / "docs" / "tabela_ll1.md",
     ROOT / "docs" / "arvore_ultima_execucao.md",
     ROOT / "docs" / "auditoria-entrega.md",
+    ROOT / "docs" / "auditoria-avaliador-ia.md",
     ROOT / "docs" / "checklist-entrega.md",
     ROOT / "docs" / "roteiro-envio.md",
     ROOT / "generated" / "tokens_ultima_execucao.txt",
@@ -70,6 +71,8 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("checklist-entrega.md", readme)
         self.assertIn("roteiro-envio.md", readme)
         self.assertIn("roteiro-defesa.md", readme)
+        self.assertIn("auditoria-avaliador-ia.md", readme)
+        self.assertIn("tests/variacoes", readme)
         self.assertIn("estado de entrega", readme)
         self.assertIn("validacao local", readme)
         self.assertIn("githubmirror", readme)
@@ -95,8 +98,32 @@ class AuditoriaEntregaTests(unittest.TestCase):
         self.assertIn("docs/tabela_ll1.md", checklist)
         self.assertIn("docs/arvore_ultima_execucao.md", checklist)
         self.assertIn("generated/ultimo_assembly.s", checklist)
+        self.assertIn("tests/variacoes", checklist)
+        self.assertIn("tests/test_variacoes_formato.py", checklist)
         self.assertIn("python analisadorsintatico.py tests/teste1.txt", checklist)
         self.assertIn('python -m unittest discover -s tests -p "test_*.py" -v', checklist)
+
+    def test_auditoria_ia_registra_padroes_dos_relatorios_antigos(self) -> None:
+        auditoria = (ROOT / "docs" / "auditoria-avaliador-ia.md").read_text(encoding="utf-8").lower()
+
+        self.assertIn("avaliacao_ra2", auditoria)
+        self.assertIn("avaliacao_ra3", auditoria)
+        self.assertIn("avaliacao-ra4", auditoria)
+        self.assertIn("readme.md", auditoria)
+        self.assertIn("first/follow", auditoria)
+        self.assertIn("tabela ll(1)", auditoria)
+        self.assertIn("generated/ultimo_assembly.s", auditoria)
+
+    def test_testes_de_variacao_estao_presentes(self) -> None:
+        variacoes = ROOT / "tests" / "variacoes"
+
+        self.assertTrue((variacoes / "espacos_tabs_linhas.txt").exists())
+        self.assertTrue((variacoes / "seq_linha_longa.txt").exists())
+        self.assertTrue((ROOT / "tests" / "invalidos" / "lexico_numero_malformado.txt").exists())
+        self.assertTrue((ROOT / "tests" / "invalidos" / "sintaxe_expressao_vazia.txt").exists())
+        self.assertTrue(
+            (ROOT / "tests" / "invalidos" / "sintaxe_multiplas_declaracoes_mesma_linha.txt").exists()
+        )
 
     def test_roteiro_envio_define_congelamento_pos_prazo(self) -> None:
         roteiro = (ROOT / "docs" / "roteiro-envio.md").read_text(encoding="utf-8").lower()
