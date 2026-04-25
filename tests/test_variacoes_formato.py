@@ -60,7 +60,7 @@ class VariacoesFormatoTests(unittest.TestCase):
         caminho = ROOT / "tests" / "invalidos" / "sintaxe_expressao_vazia.txt"
         tokens = lerTokens(caminho)
 
-        with self.assertRaisesRegex(SyntaxAnalysisError, "program_body_after_lparen"):
+        with self.assertRaisesRegex(SyntaxAnalysisError, "Declaracao vazia"):
             parsear(tokens, construirGramatica())
 
 

@@ -352,6 +352,11 @@ class RecursiveDescentLL1Parser:
 
         if nonterminal == "program_body" and token.token_type == TokenType.EOF:
             return "Programa incompleto: faltou a linha final (END)."
+        if nonterminal == "program_body_after_lparen" and token.token_type == TokenType.RPAREN:
+            return (
+                "Declaracao vazia encontrada. Entre '(' e ')' era esperado END, um numero, "
+                f"um identificador ou uma estrutura aninhada na linha {token.line}, coluna {token.column}."
+            )
         if token.token_type == TokenType.EOF:
             return (
                 f"Fim inesperado de arquivo enquanto analisava {nonterminal}. "

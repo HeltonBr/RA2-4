@@ -509,3 +509,23 @@ Executar a auditoria final do ultimo dia antes do congelamento, usando os relato
 
 - Fazer somente conferencia final e envio antes do congelamento.
 - Depois do prazo, usar apenas `Githubmirror` para treino de defesa e simulacoes.
+
+## 2026-04-24 - Checkpoint 13
+
+### Objetivo do checkpoint
+
+Refinar a mensagem de erro para declaracao vazia durante a bateria final na pasta espelho.
+
+### Tarefas executadas
+
+- Troca da mensagem tecnica `program_body_after_lparen` por uma explicacao direta para entradas como `()`.
+- Atualizacao do teste automatizado de variacao para validar a nova mensagem.
+
+### Validacoes realizadas neste checkpoint
+
+- Execucao de `python -m unittest tests.test_variacoes_formato -v`.
+- Execucao manual de `python AnalisadorSintatico.py tests\invalidos\sintaxe_expressao_vazia.txt`.
+
+### Proximas tarefas do pipeline
+
+- Rodar suite completa antes do commit e sincronizar `Githubmirror`.
