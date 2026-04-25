@@ -86,8 +86,8 @@ Essas escolhas mantem o estilo pos-fixado e permitem documentar uma gramatica ca
 
 - O enunciado exige simultaneamente compatibilidade com a Fase 1 e uma gramatica LL(1) estrita. Alguns atalhos permissivos da Fase 1, como memoria nua como operando, podem gerar ambiguidades formais. A estrategia adotada e manter uma sintaxe canonica rigorosa e tratar compatibilidades extras como opcional.
 - A parte de Assembly para `IF`, `IFELSE` e `WHILE` exige convencao clara de verdade booleana e controle de labels.
-- O nome final do repositorio no GitHub depende do nome oficial do grupo no Canvas, que ainda precisa ser confirmado antes da publicacao.
-- A etapa restante mais sensivel esta na auditoria final da documentacao e dos detalhes administrativos da entrega.
+- O nome final do repositorio no GitHub foi mantido como `RA2-4`, conforme o grupo informado para a entrega.
+- A auditoria final da documentacao e dos detalhes administrativos foi registrada em `docs/checklist-entrega.md`, `docs/auditoria-entrega.md` e `docs/linha-do-tempo.md`.
 
 ## 6. Checklist de aceite final
 

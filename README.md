@@ -15,12 +15,14 @@ Esta fase amplia a Fase 1 para construir um analisador sintatico LL(1), gerar a 
 
 ## Situacao atual
 
+- Entrega publicada e validada no repositorio publico `HeltonBr/RA2-4`.
 - Pipeline completo implementado: leitura de tokens, gramatica LL(1), parser descendente recursivo, AST e geracao de Assembly ARMv7.
-- Tres arquivos de teste validos, cenarios invalidos, auditoria automatizada e checklist final ja estao presentes no repositorio.
+- Tres arquivos de teste validos, cenarios invalidos, auditoria automatizada e checklist final estao presentes no repositorio.
 - Testes adicionais de variacao de formato cobrem espacos extras, tabs, linhas em branco, comentarios e estruturas `SEQ` longas em uma mesma linha.
 - A linha do tempo das etapas concluida/testada fica em `docs/linha-do-tempo.md`.
 - Compatibilidade mantida com o formato serializado de tokens da Fase 1.
 - Ambiente local validado com Python 3.9 a partir da raiz do repositorio.
+- Validacao final registrada com `python -m unittest discover -s tests -p "test_*.py" -v` e 30 testes aprovados.
 
 ## Estrutura do repositorio
 
@@ -149,4 +151,6 @@ Exemplo de estrutura valida da linguagem:
 
 - Implementacao, documentacao tecnica, testes e artefatos obrigatorios estao organizados no repositorio.
 - A validacao local pode ser refeita integralmente a partir da raiz com os comandos documentados neste README.
-- Fora do codigo, resta apenas a conferencia final do repositorio publicado antes do envio e o respeito ao congelamento apos o prazo.
+- A pasta `generated/` guarda os artefatos da ultima execucao canonica com `tests/teste3.txt`.
+- A pasta `defesa/` e a pasta espelho `Githubmirror` sao apoios de demonstracao/treino; a entrega oficial permanece neste repositorio.
+- Apos `24/04/2026 23:59` no fuso `America/Sao_Paulo`, a pasta oficial deve permanecer congelada.
