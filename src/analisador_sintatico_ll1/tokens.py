@@ -269,6 +269,16 @@ def _tokenizar_numero(linha: str, inicio: int, numero_linha: int) -> Token:
         break
 
     lexema = linha[inicio:fim]
+    if fim < len(linha) and linha[fim] == ".":
+        fim_malformado = fim
+        while fim_malformado < len(linha) and (linha[fim_malformado].isdigit() or linha[fim_malformado] == "."):
+            fim_malformado += 1
+        lexema_malformado = linha[inicio:fim_malformado]
+        raise LexicalTokenError(
+            f"Numero malformado '{lexema_malformado}' na linha {numero_linha}, coluna {inicio + 1}. "
+            "Use no maximo um ponto decimal por numero."
+        )
+
     if lexema.endswith("."):
         raise LexicalTokenError(
             f"Numero invalido '{lexema}' na linha {numero_linha}, coluna {inicio + 1}."

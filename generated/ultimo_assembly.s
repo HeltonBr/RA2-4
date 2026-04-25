@@ -515,79 +515,81 @@ pow_double_int_done:
     bx lr
 
 signed_divmod32:
-    push {r0, r1, r2, r3, r7, r9, r10, r11, lr}
-    mov r6, #0
-    mov r8, #0
-    cmp r5, #0
+    mov r2, #0
+    mov r3, #0
+    mov r12, #0
+    cmp r1, #0
     beq signed_divmod32_done
-    mov r9, #0
-    mov r10, #0
-    cmp r4, #0
+    cmp r0, #0
     bge signed_divmod32_dividend_ok
-    rsb r4, r4, #0
-    mov r9, #1
+    rsb r0, r0, #0
+    mov r3, #1
 signed_divmod32_dividend_ok:
-    cmp r5, #0
+    cmp r1, #0
     bge signed_divmod32_divisor_ok
-    rsb r5, r5, #0
-    mov r10, #1
+    rsb r1, r1, #0
+    mov r12, #1
 signed_divmod32_divisor_ok:
 signed_divmod32_loop:
-    cmp r4, r5
+    cmp r0, r1
     blt signed_divmod32_after_loop
-    sub r4, r4, r5
-    add r6, r6, #1
+    sub r0, r0, r1
+    add r2, r2, #1
     b signed_divmod32_loop
 signed_divmod32_after_loop:
-    mov r8, r4
-    eor r11, r9, r10
-    cmp r11, #0
+    eor r12, r3, r12
+    cmp r12, #0
     beq signed_divmod32_sign_q_done
-    rsb r6, r6, #0
+    rsb r2, r2, #0
 signed_divmod32_sign_q_done:
-    cmp r9, #0
-    beq signed_divmod32_done
-    rsb r8, r8, #0
+    cmp r3, #0
+    beq signed_divmod32_finish
+    rsb r0, r0, #0
+signed_divmod32_finish:
+    mov r1, r0
+    mov r0, r2
+    bx lr
 signed_divmod32_done:
-    pop {r0, r1, r2, r3, r7, r9, r10, r11, lr}
+    mov r0, #0
+    mov r1, #0
     bx lr
 
 intdiv_double:
-    push {r4, r5, r6, r8, lr}
+    push {r2, lr}
     vcvt.s32.f64 s4, d0
     vcvt.s32.f64 s5, d1
-    vmov r4, s4
-    vmov r5, s5
-    cmp r5, #0
+    vmov r0, s4
+    vmov r1, s5
+    cmp r1, #0
     beq intdiv_by_zero
     bl signed_divmod32
-    vmov s6, r6
+    vmov s6, r0
     vcvt.f64.s32 d0, s6
-    pop {r4, r5, r6, r8, lr}
+    pop {r2, lr}
     bx lr
 intdiv_by_zero:
     ldr r0, =const_zero_runtime
     vldr d0, [r0]
-    pop {r4, r5, r6, r8, lr}
+    pop {r2, lr}
     bx lr
 
 mod_double:
-    push {r4, r5, r6, r8, lr}
+    push {r2, lr}
     vcvt.s32.f64 s4, d0
     vcvt.s32.f64 s5, d1
-    vmov r4, s4
-    vmov r5, s5
-    cmp r5, #0
+    vmov r0, s4
+    vmov r1, s5
+    cmp r1, #0
     beq mod_by_zero
     bl signed_divmod32
-    vmov s6, r8
+    vmov s6, r1
     vcvt.f64.s32 d0, s6
-    pop {r4, r5, r6, r8, lr}
+    pop {r2, lr}
     bx lr
 mod_by_zero:
     ldr r0, =const_zero_runtime
     vldr d0, [r0]
-    pop {r4, r5, r6, r8, lr}
+    pop {r2, lr}
     bx lr
 
 .data

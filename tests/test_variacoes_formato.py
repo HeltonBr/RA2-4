@@ -46,7 +46,7 @@ class VariacoesFormatoTests(unittest.TestCase):
     def test_numero_malformado_e_erro_lexico(self) -> None:
         caminho = ROOT / "tests" / "invalidos" / "lexico_numero_malformado.txt"
 
-        with self.assertRaises(LexicalTokenError):
+        with self.assertRaisesRegex(LexicalTokenError, "Numero malformado"):
             lerTokens(caminho)
 
     def test_declaracoes_de_topo_na_mesma_linha_sao_rejeitadas(self) -> None:

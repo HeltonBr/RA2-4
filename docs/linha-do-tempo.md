@@ -529,3 +529,26 @@ Refinar a mensagem de erro para declaracao vazia durante a bateria final na past
 ### Proximas tarefas do pipeline
 
 - Rodar suite completa antes do commit e sincronizar `Githubmirror`.
+
+## 2026-04-24 - Checkpoint 14
+
+### Objetivo do checkpoint
+
+Fechar a bateria final antes do congelamento da entrega e incorporar apenas correcoes comprovadas na pasta espelho.
+
+### Tarefas executadas
+
+- Refinamento da mensagem lexico para numero com mais de um ponto decimal.
+- Ajuste do runtime ARMv7 de divisao inteira e modulo para evitar aviso do CPulator sobre registradores preservados.
+- Conferencia manual dos programas `tests/teste1.txt`, `tests/teste2.txt`, `tests/teste3.txt` e das variacoes finais na pasta `Githubmirror`.
+
+### Validacoes realizadas neste checkpoint
+
+- Execucao de `python -m unittest discover -s tests -p "test_*.py" -v`.
+- Regeneracao dos artefatos finais com `python AnalisadorSintatico.py tests\teste3.txt`.
+- Validacao manual no CPulator ARMv7 com compilacao limpa e saida JTAG coerente para o `teste3`.
+
+### Proximas tarefas do pipeline
+
+- Manter a pasta oficial `Github` congelada apos o commit final.
+- Usar somente `Githubmirror` para treino, simulacoes e defesa apos o prazo da entrega.
